@@ -52,7 +52,7 @@ function Skill({ skill, onHover, onLeave }) {
                 <div style={{ width: '100%', height: '100%'}} onMouseEnter={()=> onHover(skill)} onMouseLeave={()=> onLeave()}  >
                     <section className={classes.container}>
                         <div className={classes.icon}>
-                            {skill.url &&<img src={skill.url} width='70' height='70' alt={skill.name} />}
+                            {skill.url &&<img src={skill.url} width='60' height='60' alt={skill.name} />}
                         </div>
                         <div className={classes.text}>
                             {skill.name && <div>{skill.name}</div>}

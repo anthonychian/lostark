@@ -1,8 +1,7 @@
 import React from 'react'
 import SkillTooltip from './SkillTooltip';
-import { makeStyles } from '@mui/styles';
 import { connect } from 'react-redux'
-
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
     outer: {

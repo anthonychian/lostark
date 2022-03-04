@@ -12,7 +12,7 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
   box: {
     height: '700px',
-    width: '500px',
+    width: '450px',
     display: 'flex',
     alignItems: 'center',
     
