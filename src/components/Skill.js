@@ -30,11 +30,13 @@ const useStyles = makeStyles({
         // backgroundColor: 'blue',
         display: 'flex',
         alignItems: 'center',
+        '&:hover': {
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        }
     },
     icon: {
         fontSize: '20px',
         marginLeft: '1em',
-
 
         overflow: 'hidden',
         position: 'relative',
@@ -106,7 +108,7 @@ function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected }) {
                     }} >
                     <div className={classes.container}>
                         <div className={classes.icon}>
-                            {skill.url &&<img src={skill.url} width='40' height='40' alt={skill.name} />}
+                            {skill.url &&<img src={skill.url} width='60' height='60' alt={skill.name} />}
                         </div>
                         <div className={classes.text}>
                             {skill.name && <div>{skill.name}</div>}
@@ -122,7 +124,7 @@ function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected }) {
                     }} >
                     <div className={classes.container}>
                         <div className={classes.icon}>
-                            {skill.url &&<img src={skill.url} width='40' height='40' alt={skill.name} />}
+                            {skill.url &&<img src={skill.url} width='60' height='60' alt={skill.name} />}
                         </div>
                         <div className={classes.text}>
                             {skill.name && <div>{skill.name}</div>}

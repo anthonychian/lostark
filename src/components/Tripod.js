@@ -44,37 +44,175 @@ const useStyles = makeStyles({
         justifyContent: 'center',
         alignContent: 'center',
     },
+    // avatar_t1: {
+    //     cursor: 'pointer',
+    //     filter: 'saturate(0%)',
+    //     '&:hover': {
+    //         filter: 'saturate(100%)',
+    //         opacity: 1.0,
+    //         borderRadius:' 50%',
+    //         boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #4db8ff`
+    //     },
+    // },
+    // avatar_t2: {
+    //     cursor: 'pointer',
+    //     filter: 'saturate(0%)',
+    //     '&:hover': {
+    //         filter: 'saturate(100%)',
+    //         opacity: 1.0,
+    //         borderRadius:' 50%',
+    //         boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #00ff00`
+    //     },
+    // },
+    // avatar_t3: {
+    //     cursor: 'pointer',
+    //     filter: 'saturate(0%)',
+    //     '&:hover': {
+    //         filter: 'saturate(100%)',
+    //         opacity: 1.0,
+    //         borderRadius:' 50%',
+    //         boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #ffff00`,
+    //         color: '#ffff00'
+    //     },
+    // },
+
     avatar_t1: {
         cursor: 'pointer',
         filter: 'saturate(0%)',
+
+        overflow: 'hidden',
+        position: 'relative',
+
+        '&:before': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.5)',
+            width: '60px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(30px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
+        '&:after': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.2)',
+            width: '30px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(5px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
         '&:hover': {
             filter: 'saturate(100%)',
             opacity: 1.0,
             borderRadius:' 50%',
-            boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #4db8ff`
+            boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #4db8ff`,
+
+            '&:before': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.3s'
+            },
+            '&:after': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.0s'
+            }
         },
     },
     avatar_t2: {
         cursor: 'pointer',
         filter: 'saturate(0%)',
+
+        overflow: 'hidden',
+        position: 'relative',
+
+        '&:before': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.5)',
+            width: '60px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(30px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
+        '&:after': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.2)',
+            width: '30px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(5px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
         '&:hover': {
             filter: 'saturate(100%)',
             opacity: 1.0,
             borderRadius:' 50%',
-            boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #00ff00`
+            boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #00ff00`,
+
+            '&:before': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.3s'
+            },
+            '&:after': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.0s'
+            }
         },
     },
     avatar_t3: {
         cursor: 'pointer',
         filter: 'saturate(0%)',
+
+        overflow: 'hidden',
+        position: 'relative',
+
+        '&:before': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.5)',
+            width: '60px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(30px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
+        '&:after': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.2)',
+            width: '30px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(5px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
         '&:hover': {
             filter: 'saturate(100%)',
             opacity: 1.0,
             borderRadius:' 50%',
             boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #ffff00`,
-            color: '#ffff00'
+
+            '&:before': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.3s'
+            },
+            '&:after': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.0s'
+            }
         },
     },
+
+    
     avatarContainer: {
         display: 'flex',
         justifyContent: 'center',

@@ -6,7 +6,7 @@ const useStyles = makeStyles({
     box: {
         margin: '2em',
         width: 300,
-        height: 600,
+        height: 'auto',
         backgroundColor: 'black',
         opacity: 0.9,
         color: 'white',
@@ -30,11 +30,7 @@ const useStyles = makeStyles({
         display: 'flex',
         alignItems: 'center',
     },
-    type: {
-        marginLeft: '0.5em',
-        paddingTop: '0.5em',
-        lineHeight: '1.3em',
-    },
+    
     level: {
         paddingTop: '2em',
         margin: '1em',
@@ -43,6 +39,7 @@ const useStyles = makeStyles({
     desc: {
         margin: '1em',
         fontSize: '15px',
+        paddingBottom: '3em'
     },
 })
 
