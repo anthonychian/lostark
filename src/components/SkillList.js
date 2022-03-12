@@ -1,10 +1,8 @@
 import React from 'react'
 import Skill from './Skill'
+import Tripod from './Tripod'
 import deathbladeSkills from '../data/deathblade'
-
 import List from '@mui/material/List'
-
-
 import Box from '@mui/material/Box';
 import { makeStyles } from '@mui/styles';
 
@@ -12,9 +10,10 @@ import { makeStyles } from '@mui/styles';
 const useStyles = makeStyles({
   box: {
     height: '700px',
-    width: '450px',
+    width: '550px',
     display: 'flex',
     alignItems: 'center',
+    backgroundColor: 'black'
     
   },
   boxContainer: {
@@ -44,7 +43,7 @@ export default function SkillList() {
           position: 'relative',
           overflow: 'auto',
           '& ul': { padding: 0 },
-          }} subheader={<li />}>
+        }} subheader={<li />}>
 
           
 
@@ -55,7 +54,9 @@ export default function SkillList() {
           )}
 
         </List>
+        
       </Box>
+      <Tripod />
     </section>
   )
 }

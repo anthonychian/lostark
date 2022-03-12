@@ -1,5 +1,7 @@
 import React from 'react'
 import SkillTooltip from './SkillTooltip';
+import TripodTooltip from './TripodTooltip';
+
 import { connect } from 'react-redux'
 import { makeStyles } from '@mui/styles';
 
@@ -8,28 +10,38 @@ const useStyles = makeStyles({
         backgroundColor: 'black',
         position: 'relative',
     },
-    inner: {
+    skillInner: {
         top: '20vh',
-        left: '70vw',
+        right: '77vw',
+        position: 'absolute',
+    },
+    tripodInner: {
+        top: '20vh',
+        left: '77vw',
         position: 'absolute',
     }
 })
 
-function Tooltip({ skill }) {
+function Tooltip({ skill, tripod }) {
 
     const classes = useStyles()
 
     return (
         <div className={classes.outer}>
-            <div className={classes.inner}>
-                {skill &&<SkillTooltip skill={skill} />}
+            <div className={classes.skillInner}>
+                {skill && <SkillTooltip skill={skill} />}
             </div>
+            <div className={classes.tripodInner}>
+                {tripod && <TripodTooltip tripod={tripod} />}
+            </div>
+            
         </div>
     )
 }
 
 const mapStateToProps = state => ({
     skill: state.skills.skill,
+    tripod: state.tripodTooltip.tripod,
 })
 
 export default connect(mapStateToProps)(Tooltip)

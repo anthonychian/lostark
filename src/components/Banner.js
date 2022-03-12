@@ -2,16 +2,14 @@ import React from 'react'
 import deathblade from '../assets/deathblade2.jpg'
 import deathbladelogo from '../assets/deathbladelogo.png'
 import { makeStyles } from '@mui/styles';
-import { fontSize } from '@mui/system';
 
 const useStyles = makeStyles({
     banner: {
         transform: 'scaleX(-1)',
-        left: '0',
         objectFit: 'cover',
         position: 'absolute',
         height: '100vh',
-        width: '100vw'
+        width: '70vw'
     },
     header: {
         width: '100px',

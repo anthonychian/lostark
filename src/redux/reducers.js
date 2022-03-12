@@ -1,5 +1,4 @@
-import { HOVER_SKILL } from "./actions"
-import { LEAVE_SKILL } from "./actions"
+import { HOVER_SKILL, LEAVE_SKILL, CLICK_SKILL, CLICK_SKILL_SELECTED, TRIPOD_HOVER_SKILL, TRIPOD_LEAVE_SKILL} from "./actions"
 
 export const skills = (state = {}, action) => {
     const { type, payload } = action
@@ -7,13 +6,51 @@ export const skills = (state = {}, action) => {
     switch (type) {
         case HOVER_SKILL: {
             const skill = payload
-            console.log(skill)
             return skill
         }
         case LEAVE_SKILL: {
             const skill = payload
-            console.log(skill)
             return skill
+        }
+        default: 
+            return state
+    }
+}
+export const tripods = (state = [], action) => {
+    const { type, payload } = action
+    switch (type) {
+        case CLICK_SKILL: {
+            const tripod = payload
+            return tripod
+        }
+        default: 
+            return state
+    }
+}
+
+export const skillSelected = (state = [], action) => {
+    const { type, payload } = action
+    switch (type) {
+        case CLICK_SKILL_SELECTED: {
+            const selected = payload
+            return selected
+        }
+        default: 
+            return state
+    }
+}
+
+export const tripodTooltip = (state = {}, action) => {
+    const { type, payload } = action
+
+    switch (type) {
+        case TRIPOD_HOVER_SKILL: {
+            const tripod = payload
+            return tripod
+        }
+        case TRIPOD_LEAVE_SKILL: {
+            const tripod = payload
+            return tripod
         }
         default: 
             return state

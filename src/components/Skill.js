@@ -5,13 +5,21 @@ import ListItem from '@mui/material/ListItem';
 // import SkillTooltip from './SkillTooltip';
 
 import { connect } from 'react-redux'
-import { onHoverSkill, onLeaveSkill } from '../redux/actions'
+import { onHoverSkill, onLeaveSkill, onClickSkill, onClickSelected } from '../redux/actions'
 
 const useStyles = makeStyles({
+    boxSelected: {
+        width: '100%', 
+        height: '100%',
+        opacity: 0.9,
+        color: 'white',
+        position: 'relative',
+        border: '2px solid #4db8ff',
+    },
     box: {
         width: '100%', 
         height: '100%',
-        backgroundColor: 'black',
+        // backgroundColor: 'red',
         opacity: 0.9,
         color: 'white',
         position: 'relative',
@@ -19,13 +27,52 @@ const useStyles = makeStyles({
     container: {
         height: '100%',
         width: '100%',
+        // backgroundColor: 'blue',
         display: 'flex',
         alignItems: 'center',
     },
     icon: {
         fontSize: '20px',
         marginLeft: '1em',
+
+
+        overflow: 'hidden',
+        position: 'relative',
+
+        '&:before': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.5)',
+            width: '60px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(30px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
+        '&:after': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.2)',
+            width: '30px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(5px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
+        '&:hover': {
+            '&:before': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.3s'
+            },
+            '&:after': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.0s'
+            }
+        },
     },
+    
     text: {
         fontSize: '20px',
         marginLeft: '0.5em',
@@ -42,31 +89,60 @@ const useStyles = makeStyles({
 
 })
 
-function Skill({ skill, onHover, onLeave }) {
+function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected }) {
 
     const classes = useStyles()
+     
+        let currentlySelected = (current === skill.name)
+           
 
     return (
-        <ListItem key={skill.name} sx={{ height: '100px'}}>
-            <Box className={classes.box} >
-                <div style={{ width: '100%', height: '100%'}} onMouseEnter={()=> onHover(skill)} onMouseLeave={()=> onLeave()}  >
-                    <section className={classes.container}>
+        <ListItem key={skill.name} sx={{ height: '100px', width: '100%'}}>
+            {currentlySelected && <Box className={classes.boxSelected} >
+                <div style={{ width: '100%', height: '100%'}} onMouseEnter={()=> onHover(skill)} onMouseLeave={()=> onLeave()}  
+                    onClick={()=> {
+                        onClick(skill.tripod)
+                        onClickSelected(skill.name)
+                    }} >
+                    <div className={classes.container}>
                         <div className={classes.icon}>
-                            {skill.url &&<img src={skill.url} width='60' height='60' alt={skill.name} />}
+                            {skill.url &&<img src={skill.url} width='40' height='40' alt={skill.name} />}
                         </div>
                         <div className={classes.text}>
                             {skill.name && <div>{skill.name}</div>}
                         </div>
-                    </section>
+                    </div>
                 </div>
-            </Box>
+            </Box>}
+            {!currentlySelected && <Box className={classes.box} >
+                <div style={{ width: '100%', height: '100%'}} onMouseEnter={()=> onHover(skill)} onMouseLeave={()=> onLeave()}  
+                    onClick={()=> {
+                        onClick(skill.tripod)
+                        onClickSelected(skill.name)
+                    }} >
+                    <div className={classes.container}>
+                        <div className={classes.icon}>
+                            {skill.url &&<img src={skill.url} width='40' height='40' alt={skill.name} />}
+                        </div>
+                        <div className={classes.text}>
+                            {skill.name && <div>{skill.name}</div>}
+                        </div>
+                    </div>
+                </div>
+            </Box>}
         </ListItem>
     )
 }
+const mapStateToProps = state => ({
+    current: state.skillSelected,
+})
+
 
 const mapDispatchToProps = dispatch => ({
     onHover: (skill) => dispatch(onHoverSkill(skill)),
-    onLeave: () => dispatch(onLeaveSkill())
-})
+    onLeave: () => dispatch(onLeaveSkill()),
+    onClick: (tripod) => dispatch(onClickSkill(tripod)),
+    onClickSelected: (name) => dispatch(onClickSelected(name))
+}) 
 
-export default connect(null, mapDispatchToProps)(Skill)
+export default connect(mapStateToProps, mapDispatchToProps)(Skill)
