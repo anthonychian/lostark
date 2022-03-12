@@ -1,9 +1,7 @@
-@import url(//db.onlinewebfonts.com/c/c8e8fcd5d85d9b587022fe0a79809b73?family=Friz+Quadrata);
-
 body {
   margin: 0;
   background-color:rgb(17, 17, 17);
-  font-family: "Friz Quadrata";
+  font-family: 'Asul', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
