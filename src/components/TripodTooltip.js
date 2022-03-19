@@ -44,7 +44,7 @@ const useStyles = makeStyles({
 })
 
 export default function TripodTooltip({ tripod }) {
-    console.log(tripod)
+    // console.log(tripod)
     const classes = useStyles()
 
     return (

@@ -6,7 +6,7 @@ import { Avatar } from '@mui/material';
 import icon_1 from '../assets/icon1.webp'
 import icon_2 from '../assets/icon2.webp'
 import icon_3 from '../assets/icon3.webp'
-import { onHoverTripod, onLeaveTripod } from '../redux/actions';
+import { onClickTripod, onHoverTripod, onLeaveTripod } from '../redux/actions';
 
 const useStyles = makeStyles({
     box: {
@@ -121,6 +121,45 @@ const useStyles = makeStyles({
             }
         },
     },
+    avatar_t1_selected: {
+        overflow: 'hidden',
+        position: 'relative',
+        opacity: 1.0,
+        borderRadius:' 50%',
+        boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #4db8ff`,
+        '&:before': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.5)',
+            width: '60px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(30px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
+        '&:after': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.2)',
+            width: '30px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(5px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
+        '&:hover': {
+            '&:before': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.3s'
+            },
+            '&:after': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.0s'
+            }
+        },
+    },
     avatar_t2: {
         cursor: 'pointer',
         filter: 'saturate(0%)',
@@ -156,6 +195,45 @@ const useStyles = makeStyles({
             borderRadius:' 50%',
             boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #00ff00`,
 
+            '&:before': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.3s'
+            },
+            '&:after': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.0s'
+            }
+        },
+    },
+    avatar_t2_selected: {
+        overflow: 'hidden',
+        position: 'relative',
+        opacity: 1.0,
+        borderRadius:' 50%',
+        boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #00ff00`,
+        '&:before': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.5)',
+            width: '60px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(30px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
+        '&:after': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.2)',
+            width: '30px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(5px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
+        '&:hover': {
             '&:before': {
                 transform: 'translateX(300px) skew(-15deg)',
                 transition: '1.3s'
@@ -211,6 +289,45 @@ const useStyles = makeStyles({
             }
         },
     },
+    avatar_t3_selected: {
+        overflow: 'hidden',
+        position: 'relative',
+        opacity: 1.0,
+        borderRadius:' 50%',
+        boxShadow: `0 0 5px 1px #fff, 0 0 15px 10px #ffff00`,
+        '&:before': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.5)',
+            width: '60px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(30px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
+        '&:after': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            background: 'rgba(255, 255, 255, 0.2)',
+            width: '30px',
+            height: '100%',
+            top: 0,
+            fliter: 'blur(5px)',
+            transform: 'translateX(-100px) skew(-15deg)',
+        },
+        '&:hover': {
+            '&:before': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.3s'
+            },
+            '&:after': {
+                transform: 'translateX(300px) skew(-15deg)',
+                transition: '1.0s'
+            }
+        },
+    },
 
     
     avatarContainer: {
@@ -235,7 +352,7 @@ const useStyles = makeStyles({
     }
 })
 
-function Tripod({ tripod, onHover, onLeave }) {
+function Tripod({ tripod, tripodSelected, onHover, onLeave, onSelect}) {
 
     const classes = useStyles()
 
@@ -252,13 +369,24 @@ function Tripod({ tripod, onHover, onLeave }) {
             <div className={classes.level}>
                 {tripod && tripod.level1.map(x => 
                     <Box key={x.name}className={classes.box}>
-                        <div className={classes.avatarContainer} onMouseEnter={()=> onHover(x)} onMouseLeave={()=> onLeave()}  >
-                            <Avatar
+                        <div className={classes.avatarContainer} 
+                            onMouseEnter={()=> onHover(x)} 
+                            onMouseLeave={()=> onLeave()} 
+                            onClick={()=> {
+                                onSelect(x) 
+                        }}>
+                            {tripodSelected[0] && (tripodSelected[0].name === x.name) && <Avatar
+                                alt={x.name}
+                                src={x.url} 
+                                sx={{ width: 64, height: 64 }}
+                                className={classes.avatar_t1_selected}
+                            />}
+                            {!(tripodSelected[0] && (tripodSelected[0].name === x.name)) && <Avatar
                                 alt={x.name}
                                 src={x.url} 
                                 sx={{ width: 64, height: 64 }}
                                 className={classes.avatar_t1}
-                            />
+                            />}
                         </div>
                         <div className={classes.nameContainer}>
                             <div>{x.name}</div>
@@ -279,13 +407,24 @@ function Tripod({ tripod, onHover, onLeave }) {
             <div className={classes.level}>
                 {tripod && tripod.level2.map(x => 
                     <Box key={x.name} className={classes.box}>
-                        <div className={classes.avatarContainer} onMouseEnter={()=> onHover(x)} onMouseLeave={()=> onLeave()}  >
-                            <Avatar
+                        <div className={classes.avatarContainer} 
+                            onMouseEnter={()=> onHover(x)} 
+                            onMouseLeave={()=> onLeave()}
+                            onClick={()=> {
+                                onSelect(x) 
+                        }}>
+                            {tripodSelected[1] && (tripodSelected[1].name === x.name) && <Avatar
+                                alt={x.name}
+                                src={x.url} 
+                                sx={{ width: 64, height: 64 }}
+                                className={classes.avatar_t2_selected}
+                            />}
+                            {!(tripodSelected[1] && (tripodSelected[1].name === x.name)) && <Avatar
                                 alt={x.name}
                                 src={x.url} 
                                 sx={{ width: 64, height: 64 }}
                                 className={classes.avatar_t2}
-                            />
+                            />}
                         </div>
                         <div className={classes.nameContainer}>
                             <div>{x.name}</div>
@@ -306,13 +445,24 @@ function Tripod({ tripod, onHover, onLeave }) {
             <div className={classes.level}>
                 {tripod && tripod.level3.map(x => 
                     <Box key={x.name} className={classes.box}>
-                        <div className={classes.avatarContainer} onMouseEnter={()=> onHover(x)} onMouseLeave={()=> onLeave()}  >
-                        <Avatar
-                                alt={x.name}
-                                src={x.url} 
-                                sx={{ width: 64, height: 64 }}
-                                className={classes.avatar_t3}
-                            />
+                        <div className={classes.avatarContainer} 
+                            onMouseEnter={()=> onHover(x)} 
+                            onMouseLeave={()=> onLeave()}
+                            onClick={()=> {
+                            onSelect(x) 
+                        }}>
+                        {tripodSelected[2] && (tripodSelected[2].name === x.name) && <Avatar
+                            alt={x.name}
+                            src={x.url} 
+                            sx={{ width: 64, height: 64 }}
+                            className={classes.avatar_t3_selected}
+                        />}
+                        {!(tripodSelected[2] && (tripodSelected[2].name === x.name)) && <Avatar
+                            alt={x.name}
+                            src={x.url} 
+                            sx={{ width: 64, height: 64 }}
+                            className={classes.avatar_t3}
+                        />}
                         </div>
                         <div className={classes.nameContainer}>
                             <div>{x.name}</div>
@@ -329,10 +479,12 @@ function Tripod({ tripod, onHover, onLeave }) {
 
 const mapStateToProps = state => ({
     tripod: state.tripods.tripod,
+    tripodSelected: state.selectedTripods,
 })
 const mapDispatchToProps = dispatch => ({
     onHover: (tripod) => dispatch(onHoverTripod(tripod)),
     onLeave: () => dispatch(onLeaveTripod()),
+    onSelect: (tripod) => dispatch(onClickTripod(tripod)),
 }) 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Tripod)

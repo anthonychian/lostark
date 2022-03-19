@@ -34,6 +34,7 @@ const skills = [
                 {
                     name: 'Open Weakness',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -70,6 +71,7 @@ const skills = [
                 {
                     name: 'Vital Point Hit',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -90,6 +92,7 @@ const skills = [
                 {
                     name: 'Wide-Angle Attack',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -112,6 +115,7 @@ const skills = [
                 {
                     name: 'Excellent Mobility',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -132,6 +136,7 @@ const skills = [
                 {
                     name: 'Impaired Mobility',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -160,6 +165,7 @@ const skills = [
                 {
                     name: 'Keen Strike',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -182,6 +188,7 @@ const skills = [
                 {
                     name: 'Trailing Sword Burst',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -218,6 +225,7 @@ const skills = [
                 {
                     name: 'Merciless Attack',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -274,6 +282,7 @@ const skills = [
                 {
                     name: 'Sturdy Armor',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -294,6 +303,7 @@ const skills = [
                 {
                     name: 'Swift Fingers',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -314,6 +324,7 @@ const skills = [
                 {
                     name: 'Vital Point Hit',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -336,6 +347,7 @@ const skills = [
                 {
                     name: 'Pulling Blow',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -356,6 +368,7 @@ const skills = [
                 {
                     name: 'Powerful Twister',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -376,6 +389,7 @@ const skills = [
                 {
                     name: 'Large Twister',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -398,6 +412,7 @@ const skills = [
                 {
                     name: 'Sharp Attack',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -418,6 +433,7 @@ const skills = [
                 {
                     name: 'Tenacity',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -473,6 +489,7 @@ const skills = [
                 {
                     name: 'Impaired Mobility',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -501,6 +518,7 @@ const skills = [
                 {
                     name: 'Law of the Jungle',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -521,6 +539,7 @@ const skills = [
                 {
                     name: 'Quick Prep',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -543,6 +562,7 @@ const skills = [
                 {
                     name: 'Whirlpool',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -571,6 +591,7 @@ const skills = [
                 {
                     name: 'Vital Point Hit',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -591,6 +612,7 @@ const skills = [
                 {
                     name: 'Sustain Enhancement',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -621,6 +643,7 @@ const skills = [
                 {
                     name: 'Sword Energy Explosion',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -641,6 +664,7 @@ const skills = [
                 {
                     name: 'Thick Sword Energy',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -706,6 +730,7 @@ const skills = [
                 {
                     name: 'Quick Prep',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -726,6 +751,7 @@ const skills = [
                 {
                     name: 'Orb Control',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -746,6 +772,7 @@ const skills = [
                 {
                     name: 'Weak Point Detection',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -768,6 +795,7 @@ const skills = [
                 {
                     name: 'Tenacity',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -780,6 +808,7 @@ const skills = [
                 {
                     name: 'Vital Point Hit',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -800,6 +829,7 @@ const skills = [
                 {
                     name: 'Swoop',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -822,6 +852,7 @@ const skills = [
                 {
                     name: 'Moon Star',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -850,6 +881,7 @@ const skills = [
                 {
                     name: 'Stardust',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -923,6 +955,7 @@ const skills = [
                 {
                     name: 'Wide-Angle Attack',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -943,6 +976,7 @@ const skills = [
                 {
                     name: 'Open Weakness',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -979,6 +1013,7 @@ const skills = [
                 {
                     name: 'Swift Fingers',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1001,6 +1036,7 @@ const skills = [
                 {
                     name: 'Sturdy Armor',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1021,6 +1057,7 @@ const skills = [
                 {
                     name: 'Corkscrew',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1057,6 +1094,7 @@ const skills = [
                 {
                     name: 'Quick Prep',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1079,6 +1117,7 @@ const skills = [
                 {
                     name: 'Triple Spin',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -1107,6 +1146,7 @@ const skills = [
                 {
                     name: 'King Spin',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -1176,6 +1216,7 @@ const skills = [
                 {
                     name: 'Fist of Darkness',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1196,6 +1237,7 @@ const skills = [
                 {
                     name: 'Burning Hands',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1232,6 +1274,7 @@ const skills = [
                 {
                     name: 'Ice Cold Hands',
                     level: 1,
+                    tier: 1,
                     desc: [
                         {
                             text: 'Element is now [Water]. On hit, inflicts frost. Move Speed -',
@@ -1285,6 +1328,7 @@ const skills = [
                 {
                     name: 'Quick Prep',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1305,6 +1349,7 @@ const skills = [
                 {
                     name: 'Soul Snatch',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1325,6 +1370,7 @@ const skills = [
                 {
                     name: 'Vital Point Hit',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1347,6 +1393,7 @@ const skills = [
                 {
                     name: 'Finishing Enhancement',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -1367,6 +1414,7 @@ const skills = [
                 {
                     name: 'Mutilate',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -1440,6 +1488,7 @@ const skills = [
                 {
                     name: 'Swift Fingers',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1460,6 +1509,7 @@ const skills = [
                 {
                     name: 'Quick Pace',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1488,6 +1538,7 @@ const skills = [
                 {
                     name: 'Magick Control',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1510,6 +1561,7 @@ const skills = [
                 {
                     name: 'Tenacity',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1522,6 +1574,7 @@ const skills = [
                 {
                     name: 'Corkscrew',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1550,6 +1603,7 @@ const skills = [
                 {
                     name: 'Vital Point Hit',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1572,6 +1626,7 @@ const skills = [
                 {
                     name: 'Upper Axel',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -1600,6 +1655,7 @@ const skills = [
                 {
                     name: 'High Axel',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -1666,6 +1722,7 @@ const skills = [
                 {
                     name: 'Wide-Angle Attack',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1686,6 +1743,7 @@ const skills = [
                 {
                     name: 'Concussion',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1698,6 +1756,7 @@ const skills = [
                 {
                     name: 'Swift Fingers',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1720,6 +1779,7 @@ const skills = [
                 {
                     name: 'Fist of Darkness',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1740,6 +1800,7 @@ const skills = [
                 {
                     name: 'Burning Hands',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1760,6 +1821,7 @@ const skills = [
                 {
                     name: 'Ice Cold Hands',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -1782,6 +1844,7 @@ const skills = [
                 {
                     name: 'Power Stab',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -1810,6 +1873,7 @@ const skills = [
                 {
                     name: 'Halve',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -1866,6 +1930,7 @@ const skills = [
                 {
                     name: 'Excellent Mobility',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1886,6 +1951,7 @@ const skills = [
                 {
                     name: 'Quick Prep',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1906,6 +1972,7 @@ const skills = [
                 {
                     name: 'Weak Point Enhancement',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -1928,6 +1995,7 @@ const skills = [
                 {
                     name: 'Confirmed Kill',
                     level: 1,
+                    tier: 2,
                     desc: [
                         {
                             text: 'Crit Rate on Pushed foes +',
@@ -1947,6 +2015,7 @@ const skills = [
                 {
                     name: 'Ruthless',
                     level: 1,
+                    tier: 2,
                     desc: [
                         {
                             text: 'Crit Rate against Staggered foes +',
@@ -1966,6 +2035,7 @@ const skills = [
                 {
                     name: 'Cold Zone',
                     level: 1,
+                    tier: 2,
                     desc: [
                         {
                             text: 'Element is now [Water]. The last attack creates a Cold Zone. Move Speed -',
@@ -2019,6 +2089,7 @@ const skills = [
                 {
                     name: 'Critical Blow',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -2047,6 +2118,7 @@ const skills = [
                 {
                     name: 'Explosion',
                     level: 1,
+                    tier: 3,
                     desc: [
                         {
                             text: 'AoE Radius +',
@@ -2118,6 +2190,7 @@ const skills = [
                 {
                     name: 'Magick Control',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -2138,6 +2211,7 @@ const skills = [
                 {
                     name: 'Orb Control',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -2158,6 +2232,7 @@ const skills = [
                 {
                     name: 'Quick Prep',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -2180,6 +2255,7 @@ const skills = [
                 {
                     name: 'Back Attack Enhancement',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -2200,6 +2276,7 @@ const skills = [
                 {
                     name: 'Wide-Angle Attack',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -2220,6 +2297,7 @@ const skills = [
                 {
                     name: 'Vital Point Hit',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -2242,6 +2320,7 @@ const skills = [
                 {
                     name: 'Cross Attack',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -2262,6 +2341,7 @@ const skills = [
                 {
                     name: 'Forward Retreat',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -2328,6 +2408,7 @@ const skills = [
                 {
                     name: 'Concussion',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -2340,6 +2421,7 @@ const skills = [
                 {
                     name: 'Law of the Jungle',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -2360,6 +2442,7 @@ const skills = [
                 {
                     name: 'Push',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -2390,6 +2473,7 @@ const skills = [
                 {
                     name: 'Darkness Injection',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -2426,6 +2510,7 @@ const skills = [
                 {
                     name: 'Stun Effect',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -2446,6 +2531,7 @@ const skills = [
                 {
                     name: 'Weak Point Detection',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -2468,6 +2554,7 @@ const skills = [
                 {
                     name: 'Leap Attack',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -2496,6 +2583,7 @@ const skills = [
                 {
                     name: 'Earth Explosion',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -2569,6 +2657,7 @@ const skills = [
                 {
                     name: 'Quick Prep',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -2589,6 +2678,7 @@ const skills = [
                 {
                     name: 'Magick Control',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -2609,6 +2699,7 @@ const skills = [
                 {
                     name: 'Weapon Destruction',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -2640,6 +2731,7 @@ const skills = [
                 {
                     name: 'Quick Hunt',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -2652,6 +2744,7 @@ const skills = [
                 {
                     name: 'Down Hunt',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -2672,6 +2765,7 @@ const skills = [
                 {
                     name: 'Enhanced Strike',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -2694,6 +2788,7 @@ const skills = [
                 {
                     name: 'Weak Point Detection',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -2714,6 +2809,7 @@ const skills = [
                 {
                     name: 'Enhanced Stun',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -2761,6 +2857,7 @@ const skills = [
                 {
                     name: 'Fist of Darkness',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -2781,6 +2878,7 @@ const skills = [
                 {
                     name: 'Burning Hands',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -2817,6 +2915,7 @@ const skills = [
                 {
                     name: 'Ice Cold Hands',
                     level: 1,
+                    tier: 1,
                     desc: [
                         {
                             text: 'Element is now [Water]. Creates cold energy along the ground, casting Frost on foes within range for ',
@@ -2854,6 +2953,7 @@ const skills = [
                 {
                     name: 'Quick Prep',
                     level: 1,
+                    tier: 2,
                     desc: [
                         {
                             text: 'Cooldown -',
@@ -2873,6 +2973,7 @@ const skills = [
                 {
                     name: 'Sustain Enhancement',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -2901,6 +3002,7 @@ const skills = [
                 {
                     name: 'Concentrated Attack',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -2931,6 +3033,7 @@ const skills = [
                 {
                     name: 'Foward Attack',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -2960,6 +3063,7 @@ const skills = [
                 {
                     name: 'Shade Sonic',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -3032,6 +3136,7 @@ const skills = [
                 {
                     name: 'Open Weakness',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -3068,6 +3173,7 @@ const skills = [
                 {
                     name: 'Excellent Mobility',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -3096,6 +3202,7 @@ const skills = [
                 {
                     name: 'Enhanced Strike',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -3118,6 +3225,7 @@ const skills = [
                 {
                     name: 'Point Slash',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -3130,6 +3238,7 @@ const skills = [
                 {
                     name: 'Weak Point Enhancement',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -3150,6 +3259,7 @@ const skills = [
                 {
                     name: 'Tenacity',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -3164,6 +3274,7 @@ const skills = [
                 {
                     name: 'Concentrated Attack',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -3184,6 +3295,7 @@ const skills = [
                 {
                     name: 'Triple Turn',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -3254,6 +3366,7 @@ const skills = [
                 {
                     name: 'Cold Touch',
                     level: 1,
+                    tier: 1,
                     desc: [
                         {
                             text: 'Element is now [Water]. Responds to incoming Damage by Freezing foes within',
@@ -3281,6 +3394,7 @@ const skills = [
                 {
                     name: 'Orb Control',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -3301,6 +3415,7 @@ const skills = [
                 {
                     name: 'Wide-Angle Attack',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -3323,6 +3438,7 @@ const skills = [
                 {
                     name: 'Dark Order',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -3367,6 +3483,7 @@ const skills = [
                 {
                     name: 'Quick Cast',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -3387,6 +3504,7 @@ const skills = [
                 {
                     name: 'Wind Storm',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -3409,6 +3527,7 @@ const skills = [
                 {
                     name: 'Stabilized Energy',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -3429,6 +3548,7 @@ const skills = [
                 {
                     name: 'Overwhelm',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -3500,6 +3620,7 @@ const skills = [
                 {
                     name: 'Orb Control',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -3520,6 +3641,7 @@ const skills = [
                 {
                     name: 'Swift Fingers',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -3540,6 +3662,7 @@ const skills = [
                 {
                     name: 'Law of the Jungle',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -3562,6 +3685,7 @@ const skills = [
                 {
                     name: 'Wide-Angle Attack',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -3582,6 +3706,7 @@ const skills = [
                 {
                     name: 'Vital Point Hit',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -3602,6 +3727,7 @@ const skills = [
                 {
                     name: 'Ice Cold Hands',
                     level: 1,
+                    tier: 2,
                     desc: [
                         {
                             text: 'Element is now [Water]. Inflicts Frost. Foe Move Speed -',
@@ -3655,6 +3781,7 @@ const skills = [
                 {
                     name: 'Double Wave',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -3699,6 +3826,7 @@ const skills = [
                 {
                     name: 'Death Wave',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -3796,6 +3924,7 @@ const skills = [
                 {
                     name: 'Wide-Angle Attack',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -3816,6 +3945,7 @@ const skills = [
                 {
                     name: 'Excellent Mobility',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -3836,6 +3966,7 @@ const skills = [
                 {
                     name: 'Vital Point Hit',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -3858,6 +3989,7 @@ const skills = [
                 {
                     name: 'All-round',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -3870,6 +4002,7 @@ const skills = [
                 {
                     name: 'Charge Enhancement',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -3890,6 +4023,7 @@ const skills = [
                 {
                     name: 'Dark Charge',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -3912,6 +4046,7 @@ const skills = [
                 {
                     name: 'Shadow Rush',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -3924,6 +4059,7 @@ const skills = [
                 {
                     name: 'Dual Blitz',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -3997,6 +4133,7 @@ const skills = [
                 {
                     name: 'Swift Fingers',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -4017,6 +4154,7 @@ const skills = [
                 {
                     name: 'Wide-Angle Attack',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -4037,6 +4175,7 @@ const skills = [
                 {
                     name: 'Orb Control',
                     level: 1,
+                    tier: 1,
                     desc: [
                         
                         {
@@ -4059,6 +4198,7 @@ const skills = [
                 {
                     name: 'Fist of Darkness',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -4079,6 +4219,7 @@ const skills = [
                 {
                     name: 'Void Zone',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -4115,6 +4256,7 @@ const skills = [
                 {
                     name: 'Concussion',
                     level: 1,
+                    tier: 2,
                     desc: [
                         
                         {
@@ -4129,6 +4271,7 @@ const skills = [
                 {
                     name: 'Dark Explosion',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {
@@ -4149,6 +4292,7 @@ const skills = [
                 {
                     name: 'Dark Dimension',
                     level: 1,
+                    tier: 3,
                     desc: [
                         
                         {

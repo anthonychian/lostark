@@ -91,11 +91,11 @@ const useStyles = makeStyles({
 
 })
 
-function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected }) {
+function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected, tripods }) {
 
     const classes = useStyles()
      
-        let currentlySelected = (current === skill.name)
+    let currentlySelected = (current === skill.name)
            
 
     return (
@@ -108,10 +108,18 @@ function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected }) {
                     }} >
                     <div className={classes.container}>
                         <div className={classes.icon}>
-                            {skill.url &&<img src={skill.url} width='60' height='60' alt={skill.name} />}
+                            {skill.url && <img src={skill.url} width='60' height='60' alt={skill.name} />}
                         </div>
                         <div className={classes.text}>
                             {skill.name && <div>{skill.name}</div>}
+                        </div>
+                        <div className={classes.icon}>
+                            {tripods[0] && <img src={tripods[0].url} width='60' height='60' alt={tripods[0].name} />}
+                        </div>
+                        <div className={classes.icon}>
+                            {tripods[1] && <img src={tripods[1].url} width='60' height='60' alt={tripods[1].name} />}
+                        </div> <div className={classes.icon}>
+                            {tripods[2] && <img src={tripods[2].url} width='60' height='60' alt={tripods[2].name} />}
                         </div>
                     </div>
                 </div>
@@ -137,6 +145,7 @@ function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected }) {
 }
 const mapStateToProps = state => ({
     current: state.skillSelected,
+    tripods: state.selectedTripods,
 })
 
 
