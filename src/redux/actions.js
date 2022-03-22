@@ -30,7 +30,7 @@ export const onLeaveTripod = () => ({
 })
 
 export const CLICK_TRIPOD = 'CLICK_TRIPOD'
-export const onClickTripod = (tripod) => ({
+export const onClickTripod = (skillName, tripod) => ({
     type: CLICK_TRIPOD,
-    payload: { tripod },
+    payload: { skillName, tripod },
 })

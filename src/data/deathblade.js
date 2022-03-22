@@ -767,7 +767,7 @@ const skills = [
                             type: 'regular'
                         }
                     ],
-                    url: 'https://lostarkcodex.com/icons/tripod_tier_1_61.webp'
+                    url: 'https://lostarkcodex.com/icons/tripod_tier_1_37.webp'
                 },
                 {
                     name: 'Weak Point Detection',
@@ -2227,7 +2227,7 @@ const skills = [
                             type: 'regular'
                         }
                     ],
-                    url: 'https://lostarkcodex.com/icons/tripod_tier_1_61.webp'
+                    url: 'https://lostarkcodex.com/icons/tripod_tier_1_37.webp'
                 },
                 {
                     name: 'Quick Prep',
@@ -3410,7 +3410,7 @@ const skills = [
                             type: 'regular'
                         }
                     ],
-                    url: 'https://lostarkcodex.com/icons/tripod_tier_1_61.webp'
+                    url: 'https://lostarkcodex.com/icons/tripod_tier_1_37.webp'
                 },
                 {
                     name: 'Wide-Angle Attack',
@@ -3636,7 +3636,7 @@ const skills = [
                             type: 'regular'
                         }
                     ],
-                    url: 'https://lostarkcodex.com/icons/tripod_tier_1_61.webp'
+                    url: 'https://lostarkcodex.com/icons/tripod_tier_1_37.webp'
                 },
                 {
                     name: 'Swift Fingers',
@@ -4191,7 +4191,7 @@ const skills = [
                             type: 'regular'
                         }
                     ],
-                    url: 'https://lostarkcodex.com/icons/tripod_tier_1_61.webp'
+                    url: 'https://lostarkcodex.com/icons/tripod_tier_1_37.webp'
                 },
             ],
             level2: [

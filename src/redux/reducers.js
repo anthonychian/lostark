@@ -63,15 +63,24 @@ export const selectedTripods = (state = [], action) => {
 
     switch (type) {
         case CLICK_TRIPOD: {
+            const skillName = payload.skillName
             const url = payload.tripod.url
             const name = payload.tripod.name
             const tier = payload.tripod.tier
+            const desc = payload.tripod.desc
             const newTripod = {
+                skillName,
                 name,
-                url,
-                tier
+                tier,
+                url, 
+                desc
             }
-            return state.filter(tripod => tripod.tier !== tier).concat(newTripod).sort((a,  b) => a.tier - b.tier)
+            return state.filter(tripod => 
+                tripod.skillName === skillName && tripod.tier !== tier)
+                .concat(state.filter(tripod => 
+                    tripod.skillName !== skillName))
+                .concat(newTripod)
+                .sort((a,  b) => a.tier - b.tier)
         }
         default: 
             return state

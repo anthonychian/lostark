@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     skillInner: {
         top: '20vh',
         right: '77vw',
-        position: 'absolute',
+        position: 'fixed',
     },
     tripodInner: {
         top: '20vh',

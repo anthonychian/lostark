@@ -1,12 +1,14 @@
 import React from 'react'
 import Box from '@mui/material/Box'
 import { makeStyles } from '@mui/styles'
+import { connect } from 'react-redux'
 
 const useStyles = makeStyles({
     box: {
         margin: '2em',
+        paddingBottom: '1em',
         width: 300,
-        height: 600,
+        height: 'auto',
         backgroundColor: 'black',
         opacity: 0.9,
         color: 'white',
@@ -49,9 +51,22 @@ const useStyles = makeStyles({
         margin: '1em',
         fontSize: '15px',
     },
+    tripodDetails: {
+        display: 'flex',
+        paddingLeft: '1em'
+    },
+    tripodNameLevelContainer: {
+        paddingLeft: '1em',
+    },
+    tripodName: {
+        color: 'orange',
+    },
+    tripodLevel: {
+        color: 'gold'
+    }
 })
 
-export default function SkillTooltip({ skill }) {
+function SkillTooltip({ skill, tripods }) {
 
     const classes = useStyles()
 
@@ -124,8 +139,113 @@ export default function SkillTooltip({ skill }) {
                         {skill.super_armor && <div>{skill.super_armor}</div>}
                         {skill.counter && <div>{skill.counter}</div>}
                     </section>
+
+                    {tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 1) && <div>
+                        <section className={classes.tripodDetails}>
+                            <img src={tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 1).url}
+                                width='45' height='45'
+                                alt={'first'} 
+                            />
+                            <div className={classes.tripodNameLevelContainer}>
+                                <div className={classes.tripodName}>
+                                    {tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 1).name}
+                                </div>
+                                <div className={classes.tripodLevel}>Lv. 1</div>
+                            </div>
+                        </section>
+
+                        <section className={classes.desc}>
+                            <div>
+                                {tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 1).desc.map((text, idx) => {   
+                                    if (text.type === 'regular') {
+                                        return <span style={{ color: 'white'}} key={idx}>{text.text}</span>
+                                    }
+                                    if (text.type === 'stat') {
+                                        return <span style={{ color: 'cyan'}} key={idx}>{text.text}</span>
+                                    }
+                                    if (text.type === 'time') {
+                                        return <span style={{color: '#f0fc6d'}} key={idx}>{text.text}</span>
+                                    }
+                                    return ''
+                                })}
+                            </div>
+                        </section>
+                    </div>}
+
+                    {tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 2) && <div>
+                        <section className={classes.tripodDetails}>
+                            <img src={tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 2).url}
+                                width='45' height='45'
+                                alt={'first'} 
+                            />
+                            <div className={classes.tripodNameLevelContainer}>
+                                <div className={classes.tripodName}>
+                                    {tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 2).name}
+                                </div>
+                                <div className={classes.tripodLevel}>Lv. 1</div>
+                            </div>
+                        </section>
+
+                        <section className={classes.desc}>
+                            <div>
+                                {tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 2).desc.map((text, idx) => {   
+                                    if (text.type === 'regular') {
+                                        return <span style={{ color: 'white'}} key={idx}>{text.text}</span>
+                                    }
+                                    if (text.type === 'stat') {
+                                        return <span style={{ color: 'cyan'}} key={idx}>{text.text}</span>
+                                    }
+                                    if (text.type === 'time') {
+                                        return <span style={{color: '#f0fc6d'}} key={idx}>{text.text}</span>
+                                    }
+                                    return ''
+                                })}
+                            </div>
+                        </section>
+                    </div>}
+
+                    {tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 3) && <div>
+                        <section className={classes.tripodDetails}>
+                            <img src={tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 3).url}
+                                width='45' height='45'
+                                alt={'first'} 
+                            />
+                            <div className={classes.tripodNameLevelContainer}>
+                                <div className={classes.tripodName}>
+                                    {tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 3).name}
+                                </div>
+                                <div className={classes.tripodLevel}>Lv. 1</div>
+                            </div>
+                        </section>
+
+                        <section className={classes.desc}>
+                            <div>
+                                {tripods.find(tripod => tripod.skillName === skill.name && tripod.tier === 3).desc.map((text, idx) => {   
+                                    if (text.type === 'regular') {
+                                        return <span style={{ color: 'white'}} key={idx}>{text.text}</span>
+                                    }
+                                    if (text.type === 'stat') {
+                                        return <span style={{ color: 'cyan'}} key={idx}>{text.text}</span>
+                                    }
+                                    if (text.type === 'time') {
+                                        return <span style={{color: '#f0fc6d'}} key={idx}>{text.text}</span>
+                                    }
+                                    return ''
+                                })}
+                            </div>
+                        </section>
+                    </div>}
+
+                   
+                    
                 </div>
             </Box>
         </>
     )
 }
+
+const mapStateToProps = state => ({
+    tripods: state.selectedTripods,
+})
+
+export default connect(mapStateToProps, null)(SkillTooltip)

@@ -74,6 +74,9 @@ const useStyles = makeStyles({
             }
         },
     },
+    icon_tripod: {
+        marginLeft: '1em',
+    },
     
     text: {
         fontSize: '20px',
@@ -113,13 +116,14 @@ function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected, tri
                         <div className={classes.text}>
                             {skill.name && <div>{skill.name}</div>}
                         </div>
-                        <div className={classes.icon}>
-                            {tripods[0] && <img src={tripods[0].url} width='60' height='60' alt={tripods[0].name} />}
+                        <div className={classes.icon_tripod}>
+                            {tripods.find(x => x.tier === 1 && x.skillName === skill.name) && <img src={tripods.find(x => x.tier === 1 && x.skillName === skill.name).url} width='45' height='45' alt={tripods.find(x => x.tier === 1).url} />}
                         </div>
-                        <div className={classes.icon}>
-                            {tripods[1] && <img src={tripods[1].url} width='60' height='60' alt={tripods[1].name} />}
-                        </div> <div className={classes.icon}>
-                            {tripods[2] && <img src={tripods[2].url} width='60' height='60' alt={tripods[2].name} />}
+                        <div className={classes.icon_tripod}>
+                            {tripods.find(x => x.tier === 2 && x.skillName === skill.name) && <img src={tripods.find(x => x.tier === 2 && x.skillName === skill.name).url} width='45' height='45' alt={tripods.find(x => x.tier === 2).url} />}
+                        </div> 
+                        <div className={classes.icon_tripod}>
+                            {tripods.find(x => x.tier === 3 && x.skillName === skill.name) && <img src={tripods.find(x => x.tier === 3 && x.skillName === skill.name).url} width='45' height='45' alt={tripods.find(x => x.tier === 3).url} />}
                         </div>
                     </div>
                 </div>
@@ -132,10 +136,19 @@ function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected, tri
                     }} >
                     <div className={classes.container}>
                         <div className={classes.icon}>
-                            {skill.url &&<img src={skill.url} width='60' height='60' alt={skill.name} />}
+                            {skill.url && <img src={skill.url} width='60' height='60' alt={skill.name} />}
                         </div>
                         <div className={classes.text}>
                             {skill.name && <div>{skill.name}</div>}
+                        </div>
+                        <div className={classes.icon_tripod}>
+                            {tripods.find(x => x.tier === 1 && x.skillName === skill.name) && <img src={tripods.find(x => x.tier === 1 && x.skillName === skill.name).url} width='45' height='45' alt={tripods.find(x => x.tier === 1).url} />}
+                        </div>
+                        <div className={classes.icon_tripod}>
+                            {tripods.find(x => x.tier === 2 && x.skillName === skill.name) && <img src={tripods.find(x => x.tier === 2 && x.skillName === skill.name).url} width='45' height='45' alt={tripods.find(x => x.tier === 2).url} />}
+                        </div> 
+                        <div className={classes.icon_tripod}>
+                            {tripods.find(x => x.tier === 3 && x.skillName === skill.name) && <img src={tripods.find(x => x.tier === 3 && x.skillName === skill.name).url} width='45' height='45' alt={tripods.find(x => x.tier === 3).url} />}
                         </div>
                     </div>
                 </div>
