@@ -2,7 +2,6 @@ import React from 'react'
 import Box from '@mui/material/Box';
 import { makeStyles } from '@mui/styles';
 import ListItem from '@mui/material/ListItem';
-// import SkillTooltip from './SkillTooltip';
 
 import { connect } from 'react-redux'
 import { onHoverSkill, onLeaveSkill, onClickSkill, onClickSelected } from '../redux/actions'
@@ -11,7 +10,6 @@ const useStyles = makeStyles({
     boxSelected: {
         width: '100%', 
         height: '100%',
-        opacity: 0.9,
         color: 'white',
         position: 'relative',
         border: '2px solid #4db8ff',
@@ -20,7 +18,6 @@ const useStyles = makeStyles({
         width: '100%', 
         height: '100%',
         // backgroundColor: 'red',
-        opacity: 0.9,
         color: 'white',
         position: 'relative',
     },
@@ -28,6 +25,7 @@ const useStyles = makeStyles({
         height: '100%',
         width: '100%',
         // backgroundColor: 'blue',
+        // opacity: 0.9,
         display: 'flex',
         alignItems: 'center',
         '&:hover': {
@@ -94,23 +92,34 @@ const useStyles = makeStyles({
 
 })
 
+function dragStart(event) {
+    event.dataTransfer.setData("Text", event.target.id);
+    // document.getElementById("demo").innerHTML = "Started to drag the p element";
+}
+  
+function dragEnd(event) {
+    // document.getElementById("demo").innerHTML = "Finished dragging the p element.";
+}
+
 function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected, tripods }) {
 
     const classes = useStyles()
      
     let currentlySelected = (current === skill.name)
-           
+
 
     return (
         <ListItem key={skill.name} sx={{ height: '100px', width: '100%'}}>
             {currentlySelected && <Box className={classes.boxSelected} >
-                <div style={{ width: '100%', height: '100%'}} onMouseEnter={()=> onHover(skill)} onMouseLeave={()=> onLeave()}  
+                <div style={{ width: '100%', height: '100%'}} 
+                    onMouseEnter={()=> onHover(skill)} 
+                    onMouseLeave={()=> onLeave()}  
                     onClick={()=> {
                         onClick(skill.tripod)
                         onClickSelected(skill.name)
                     }} >
                     <div className={classes.container}>
-                        <div className={classes.icon}>
+                        <div className={classes.icon} onDragStart={(event) => dragStart(event)} onDragEnd={(event) => dragEnd(event)} draggable={true} id={skill.name}>
                             {skill.url && <img src={skill.url} width='60' height='60' alt={skill.name} />}
                         </div>
                         <div className={classes.text}>
@@ -129,13 +138,15 @@ function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected, tri
                 </div>
             </Box>}
             {!currentlySelected && <Box className={classes.box} >
-                <div style={{ width: '100%', height: '100%'}} onMouseEnter={()=> onHover(skill)} onMouseLeave={()=> onLeave()}  
+                <div style={{ width: '100%', height: '100%'}} 
+                    onMouseEnter={()=> onHover(skill)} 
+                    onMouseLeave={()=> onLeave()}  
                     onClick={()=> {
                         onClick(skill.tripod)
                         onClickSelected(skill.name)
                     }} >
                     <div className={classes.container}>
-                        <div className={classes.icon}>
+                        <div className={classes.icon} onDragStart={(event) => dragStart(event)} onDragEnd={(event) => dragEnd(event)} draggable={true} id={skill.name}>
                             {skill.url && <img src={skill.url} width='60' height='60' alt={skill.name} />}
                         </div>
                         <div className={classes.text}>

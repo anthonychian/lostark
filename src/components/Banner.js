@@ -8,17 +8,39 @@ const useStyles = makeStyles({
         transform: 'scaleX(-1)',
         objectFit: 'cover',
         position: 'absolute',
-        height: '100vh',
-        width: '70vw'
+        height: '90vh',
+        width: '100vw'
+    },
+    bannerContainer: {
+        position: 'fixed',
+        top: '-50%',
+        left: '-50%',
+        width: '200%',
+        height: '200%',
+        zIndex: '-1',
+    },
+    banner2: {
+        objectFit: 'cover',
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        margin: 'auto',
+        minWidth: '50%',
+        minHeight: '50%',
     },
     header: {
         width: '100px',
+        // height: '100px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        top: '2%',
-        left: '49%',
-        zIndex: 10,
+        top: '7%',
+        placeSelf: 'center',
+        left: '50%',
+        marginLeft: '-50px',
+        zIndex: 1,
         position: 'absolute',
     },
     logo: {
@@ -36,13 +58,16 @@ export default function Banner() {
 
     return (
         <>
-            <div className={classes.header}>
+            <section className={classes.bannerContainer}>
+                
+                <img className={classes.banner2} src={deathblade} alt='deathblade' />
+            </section>
+            <section className={classes.header}>
                 <img className={classes.logo} src={deathbladelogo} alt='deathblade_logo' />
-                <div className={classes.title}>
+                <span className={classes.title}>
                     Deathblade
-                </div>
-            </div>
-            <img className={classes.banner} src={deathblade} alt='deathblade' />
+                </span>
+            </section>
         </>
     )
 }

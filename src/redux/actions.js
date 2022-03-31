@@ -34,3 +34,21 @@ export const onClickTripod = (skillName, tripod) => ({
     type: CLICK_TRIPOD,
     payload: { skillName, tripod },
 })
+
+export const LOAD_BUILD = 'LOAD_BUILD'
+export const onLoadBuild = (tripod) => ({
+    type: LOAD_BUILD,
+    payload: { tripod },
+})
+
+export const RESET_BUILD = 'RESET_BUILD'
+export const onResetBuild = () => ({
+    type: RESET_BUILD,
+    payload: {},
+})
+
+export const SAVE_BUILD = 'SAVE_BUILD'
+export const onSaveBuild = (name, tripod) => ({
+    type: SAVE_BUILD,
+    payload: { name, tripod },
+})

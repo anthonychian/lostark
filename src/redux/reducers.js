@@ -1,4 +1,4 @@
-import { HOVER_SKILL, LEAVE_SKILL, CLICK_SKILL, CLICK_SKILL_SELECTED, TRIPOD_HOVER_SKILL, TRIPOD_LEAVE_SKILL, CLICK_TRIPOD} from "./actions"
+import { HOVER_SKILL, LEAVE_SKILL, CLICK_SKILL, CLICK_SKILL_SELECTED, TRIPOD_HOVER_SKILL, TRIPOD_LEAVE_SKILL, CLICK_TRIPOD, LOAD_BUILD, SAVE_BUILD, RESET_BUILD} from "./actions"
 
 export const skills = (state = {}, action) => {
     const { type, payload } = action
@@ -81,6 +81,29 @@ export const selectedTripods = (state = [], action) => {
                     tripod.skillName !== skillName))
                 .concat(newTripod)
                 .sort((a,  b) => a.tier - b.tier)
+        }
+        case LOAD_BUILD: {
+            return payload.tripod
+        }
+        case RESET_BUILD: {
+            return []
+        }
+        default: 
+            return state
+    }
+}
+
+
+export const storedBuilds = (state = [], action) => {
+    const { type, payload } = action
+
+    switch (type) {
+        case SAVE_BUILD: {
+            const newBuild = {
+                name: payload.name,
+                tripod: payload.tripod
+            }
+            return state.concat(newBuild)
         }
         default: 
             return state

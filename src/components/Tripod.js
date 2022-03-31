@@ -9,26 +9,26 @@ import icon_3 from '../assets/icon3.webp'
 import { onClickTripod, onHoverTripod, onLeaveTripod } from '../redux/actions';
 
 const useStyles = makeStyles({
-    box: {
-        // backgroundColor: 'red',
-        textAlign: 'center',
-        width: '100px',
-        margin: 'auto',
-        opacity: 0.9,
-        color: 'white',
-    },
     tripodContainer: {
-        height: 700,
+        height: '60vh',
         width: 500,
         backgroundColor: 'black',
+        
         // height: '100%',
         // width: '100%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between'
     },
+    box: {
+        // backgroundColor: 'red',
+        textAlign: 'center',
+        width: '100px',
+        // height: '50px',
+        margin: 'auto',
+        color: 'white',
+    },
     level: {
-        fontSize: '12px',
         display: 'flex',
         justifyContent: 'center',
         alignContent: 'center',
@@ -38,8 +38,8 @@ const useStyles = makeStyles({
         // backgroundColor: 'black'
     },
     tierAvatarContainer: {
-        paddingTop: '1em',
-        paddingBottom: '1em',
+        // paddingTop: '1em',
+        // paddingBottom: '1em',
         display: 'flex',
         justifyContent: 'center',
         alignContent: 'center',
@@ -310,6 +310,8 @@ const useStyles = makeStyles({
         paddingBottom: '1em',
         justifyContent: 'center',
         alignContent: 'center',
+        // textAlign: 'center',
+        // width: '100%'
     },
     levelContainer: {
         fontSize: '14px',
@@ -336,7 +338,7 @@ function Tripod({ current, tripod, tripodSelected, onHover, onLeave, onSelect}) 
             </div>
             <div className={classes.level}>
                 {tripod && tripod.level1.map(x => 
-                    <Box key={x.name}className={classes.box}>
+                    <Box key={x.name} className={classes.box}>
                         <div className={classes.avatarContainer} 
                             onMouseEnter={()=> onHover(x)} 
                             onMouseLeave={()=> onLeave()} 
@@ -346,13 +348,13 @@ function Tripod({ current, tripod, tripodSelected, onHover, onLeave, onSelect}) 
                             {tripodSelected.find(a => a.name === x.name && a.skillName === current) &&  <Avatar
                                 alt={x.name}
                                 src={x.url} 
-                                sx={{ width: 64, height: 64 }}
+                                sx={{ width: 50, height: 50 }}
                                 className={classes.avatar_t1_selected}
                             />}
                             {!tripodSelected.find(a => a.name === x.name && a.skillName === current) &&  <Avatar
                                 alt={x.name}
                                 src={x.url} 
-                                sx={{ width: 64, height: 64 }}
+                                sx={{ width: 50, height: 50 }}
                                 className={classes.avatar_t1}
                             />}
                         </div>
@@ -384,13 +386,13 @@ function Tripod({ current, tripod, tripodSelected, onHover, onLeave, onSelect}) 
                             {tripodSelected.find(a => a.name === x.name && a.skillName === current) &&  <Avatar
                                 alt={x.name}
                                 src={x.url} 
-                                sx={{ width: 64, height: 64 }}
+                                sx={{ width: 50, height: 50 }}
                                 className={classes.avatar_t2_selected}
                             />}
                             {!tripodSelected.find(a => a.name === x.name && a.skillName === current) &&  <Avatar
                                 alt={x.name}
                                 src={x.url} 
-                                sx={{ width: 64, height: 64 }}
+                                sx={{ width: 50, height: 50 }}
                                 className={classes.avatar_t2}
                             />}
                         </div>
@@ -422,13 +424,13 @@ function Tripod({ current, tripod, tripodSelected, onHover, onLeave, onSelect}) 
                         {tripodSelected.find(a => a.name === x.name && a.skillName === current) &&  <Avatar
                             alt={x.name}
                             src={x.url} 
-                            sx={{ width: 64, height: 64 }}
+                            sx={{ width: 50, height: 50 }}
                             className={classes.avatar_t3_selected}
                         />}
                         {!tripodSelected.find(a => a.name === x.name && a.skillName === current) &&  <Avatar
                             alt={x.name}
                             src={x.url} 
-                            sx={{ width: 64, height: 64 }}
+                            sx={{ width: 50, height: 50 }}
                             className={classes.avatar_t3}
                         />}
                         </div>
@@ -440,7 +442,7 @@ function Tripod({ current, tripod, tripodSelected, onHover, onLeave, onSelect}) 
                         </div>
                     </Box>
                 )}
-             </div>
+            </div>
         </div>
     )
 }

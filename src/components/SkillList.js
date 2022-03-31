@@ -13,11 +13,9 @@ const useStyles = makeStyles({
     width: '550px',
     display: 'flex',
     alignItems: 'center',
-    backgroundColor: 'black'
-    
   },
   boxContainer: {
-    height: '100vh',
+    height: '90vh',
     width: '100vw',
     display: 'flex',
     alignItems: 'center',
@@ -38,8 +36,9 @@ export default function SkillList() {
       <Box className={classes.box}>
         <List sx={{
           width: '100%',
-          height: '70vh',
+          height: '60vh',
           bgcolor: 'black',
+          opacity: '0.90',
           position: 'relative',
           overflow: 'auto',
           '& ul': { padding: 0 },
