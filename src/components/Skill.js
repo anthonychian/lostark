@@ -22,6 +22,8 @@ const useStyles = makeStyles({
         position: 'relative',
     },
     container: {
+        // userSelect: 'none',
+
         height: '100%',
         width: '100%',
         // backgroundColor: 'blue',
@@ -33,9 +35,10 @@ const useStyles = makeStyles({
         }
     },
     icon: {
+        // userSelect: 'none',
+        
         fontSize: '20px',
         marginLeft: '1em',
-
         overflow: 'hidden',
         position: 'relative',
 
@@ -117,10 +120,17 @@ function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected, tri
                     onClick={()=> {
                         onClick(skill.tripod)
                         onClickSelected(skill.name)
-                    }} >
+                    }}>
                     <div className={classes.container}>
-                        <div className={classes.icon} onDragStart={(event) => dragStart(event)} onDragEnd={(event) => dragEnd(event)} draggable={true} id={skill.name}>
-                            {skill.url && <img src={skill.url} width='60' height='60' alt={skill.name} />}
+                        <div className={classes.icon} >
+                            {skill.url && <img src={skill.url} 
+                                width='60' height='60' 
+                                alt={skill.name} 
+                                onDragStart={(event) => dragStart(event)} 
+                                onDragEnd={(event) => dragEnd(event)} 
+                                draggable={true} 
+                                id={skill.name}
+                            />}
                         </div>
                         <div className={classes.text}>
                             {skill.name && <div>{skill.name}</div>}
@@ -146,8 +156,15 @@ function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected, tri
                         onClickSelected(skill.name)
                     }} >
                     <div className={classes.container}>
-                        <div className={classes.icon} onDragStart={(event) => dragStart(event)} onDragEnd={(event) => dragEnd(event)} draggable={true} id={skill.name}>
-                            {skill.url && <img src={skill.url} width='60' height='60' alt={skill.name} />}
+                        <div className={classes.icon} >
+                            {skill.url && <img src={skill.url} 
+                                width='60' height='60' 
+                                alt={skill.name} 
+                                onDragStart={(event) => dragStart(event)} 
+                                onDragEnd={(event) => dragEnd(event)} 
+                                draggable={true} 
+                                id={skill.name}
+                            />}
                         </div>
                         <div className={classes.text}>
                             {skill.name && <div>{skill.name}</div>}

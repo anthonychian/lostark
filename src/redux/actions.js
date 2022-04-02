@@ -35,20 +35,45 @@ export const onClickTripod = (skillName, tripod) => ({
     payload: { skillName, tripod },
 })
 
-export const LOAD_BUILD = 'LOAD_BUILD'
-export const onLoadBuild = (tripod) => ({
-    type: LOAD_BUILD,
+export const LOAD_TRIPODS = 'LOAD_TRIPODS'
+export const onLoadTripods = (tripod) => ({
+    type: LOAD_TRIPODS,
     payload: { tripod },
 })
 
-export const RESET_BUILD = 'RESET_BUILD'
-export const onResetBuild = () => ({
-    type: RESET_BUILD,
+export const RESET_TRIPODS = 'RESET_TRIPODS'
+export const onResetTripods = () => ({
+    type: RESET_TRIPODS,
     payload: {},
 })
 
-export const SAVE_BUILD = 'SAVE_BUILD'
-export const onSaveBuild = (name, tripod) => ({
-    type: SAVE_BUILD,
+export const SAVE_TRIPODS = 'SAVE_TRIPODS'
+export const onSaveTripods = (name, tripod) => ({
+    type: SAVE_TRIPODS,
     payload: { name, tripod },
+})
+
+export const ADD_SKILL = 'ADD_SKILL'
+export const onAddSkill = (position, skill) => ({
+    type: ADD_SKILL,
+    payload: { position, skill },
+})
+
+
+export const SAVE_SKILLS = 'SAVE_SKILLS'
+export const onSaveSkills = (name, skill) => ({
+    type: SAVE_SKILLS,
+    payload: { name, skill },
+})
+
+export const LOAD_SKILLS = 'LOAD_SKILLS'
+export const onLoadSkills = (skills) => ({
+    type: LOAD_SKILLS,
+    payload: { skills },
+})
+
+export const RESET_SKILLS = 'RESET_SKILLS'
+export const onResetSkills = () => ({
+    type: RESET_SKILLS,
+    payload: {},
 })

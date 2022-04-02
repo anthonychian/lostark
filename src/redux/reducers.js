@@ -1,4 +1,4 @@
-import { HOVER_SKILL, LEAVE_SKILL, CLICK_SKILL, CLICK_SKILL_SELECTED, TRIPOD_HOVER_SKILL, TRIPOD_LEAVE_SKILL, CLICK_TRIPOD, LOAD_BUILD, SAVE_BUILD, RESET_BUILD} from "./actions"
+import { HOVER_SKILL, LEAVE_SKILL, CLICK_SKILL, CLICK_SKILL_SELECTED, TRIPOD_HOVER_SKILL, TRIPOD_LEAVE_SKILL, CLICK_TRIPOD, LOAD_TRIPODS, SAVE_TRIPODS, RESET_TRIPODS, ADD_SKILL, SAVE_SKILLS, LOAD_SKILLS, RESET_SKILLS} from "./actions"
 
 export const skills = (state = {}, action) => {
     const { type, payload } = action
@@ -82,10 +82,10 @@ export const selectedTripods = (state = [], action) => {
                 .concat(newTripod)
                 .sort((a,  b) => a.tier - b.tier)
         }
-        case LOAD_BUILD: {
+        case LOAD_TRIPODS: {
             return payload.tripod
         }
-        case RESET_BUILD: {
+        case RESET_TRIPODS: {
             return []
         }
         default: 
@@ -94,16 +94,54 @@ export const selectedTripods = (state = [], action) => {
 }
 
 
-export const storedBuilds = (state = [], action) => {
+export const storedTripods = (state = [], action) => {
     const { type, payload } = action
 
     switch (type) {
-        case SAVE_BUILD: {
-            const newBuild = {
+        case SAVE_TRIPODS: {
+            const newTripod = {
                 name: payload.name,
                 tripod: payload.tripod
             }
-            return state.concat(newBuild)
+            return state.concat(newTripod)
+        }
+        default: 
+            return state
+    }
+}
+
+export const equippedSkills = (state = new Array(9), action) => {
+    const { type, payload } = action
+
+    switch (type) {
+        case ADD_SKILL: {
+            const position = payload.position
+            const skill = payload.skill
+            state[position] = skill
+            return state
+        }
+        case LOAD_SKILLS: {
+            
+            return payload.skills
+        }
+        case RESET_SKILLS: {
+            return new Array(9)
+        }
+        default: 
+            return state
+    }
+}
+
+export const storedSkills = (state = [], action) => {
+    const { type, payload } = action
+
+    switch (type) {
+        case SAVE_SKILLS: {
+            const newSkills = {
+                name: payload.name,
+                skills: payload.skill
+            }
+            return state.concat(newSkills)
         }
         default: 
             return state

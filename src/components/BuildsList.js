@@ -4,7 +4,7 @@ import { makeStyles } from '@mui/styles'
 import Box from '@mui/material/Box'
 
 import { connect } from 'react-redux'
-import { onLoadBuild } from '../redux/actions'
+import { onLoadSkills, onLoadTripods } from '../redux/actions'
 
 const useStyles = makeStyles({
     boxContainer: {
@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     },
 })
 
-function BuildsList({ listOfBuilds, onLoad }) {
+function BuildsList({ listOfTripods, listOfSkills, onLoadTripods, onLoadSkills}) {
 
     const classes = useStyles()
 
@@ -33,10 +33,13 @@ function BuildsList({ listOfBuilds, onLoad }) {
             backgroundColor="grey"
         >
             <ul>
-                {listOfBuilds.map(build =>
+                {listOfTripods.map(build =>
                     <li className={classes.buildText} 
                         key={build.name} 
-                        onClick={()=> onLoad(build.tripod)} 
+                        onClick={()=> {
+                            onLoadTripods(build.tripod)
+                            onLoadSkills(listOfSkills.filter((skill) => skill.name === build.name)[0].skills)
+                        }} 
                     >
                         <Link to={`/`} style={{ color: 'white', textDecoration: 'none'}}>
                             {build.name}
@@ -50,12 +53,14 @@ function BuildsList({ listOfBuilds, onLoad }) {
 
 
 const mapStateToProps = state => ({
-    listOfBuilds: state.storedBuilds,
+    listOfTripods: state.storedTripods,
+    listOfSkills: state.storedSkills,
 })
 
 
 const mapDispatchToProps = dispatch => ({
-    onLoad: (tripod) => dispatch(onLoadBuild(tripod)),
+    onLoadTripods: (tripod) => dispatch(onLoadTripods(tripod)),
+    onLoadSkills: (skills) => dispatch(onLoadSkills(skills))
 }) 
 
 export default connect(mapStateToProps, mapDispatchToProps)(BuildsList)

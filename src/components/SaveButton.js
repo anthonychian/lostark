@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField'
 import { makeStyles } from '@mui/styles'
 
 import { connect } from 'react-redux'
-import { onSaveBuild, onResetBuild } from '../redux/actions'
+import { onSaveTripods, onResetTripods, onSaveSkills, onResetSkills } from '../redux/actions'
 
 
 const useStyles = makeStyles({
@@ -41,7 +41,7 @@ const useStyles = makeStyles({
     
 })
 
-function SaveButton({ tripods, onSave, onReset }) {
+function SaveButton({ tripods, equippedSkills, onSaveTripods, onResetTripods, onSaveSkills, onResetSkills  }) {
 
     const classes = useStyles()
 
@@ -49,8 +49,11 @@ function SaveButton({ tripods, onSave, onReset }) {
 
     function handleSubmit(event) {
         event.preventDefault()
-        console.log(value, tripods)
-        onSave(value, tripods)
+        //console.log(value, tripods)
+        onSaveTripods(value, tripods)
+        console.log(tripods)
+        onSaveSkills(value, equippedSkills)
+        console.log(equippedSkills)
     }
 
     return (
@@ -85,7 +88,10 @@ function SaveButton({ tripods, onSave, onReset }) {
             </section>
             <section className={classes.buttonContainer}>
                 <Button
-                    onClick={() => onReset()}
+                    onClick={() => {
+                        onResetTripods()
+                        onResetSkills()
+                    }}
                     sx={{ color: 'white'}}
                     color="secondary"
                     size="large"
@@ -99,12 +105,15 @@ function SaveButton({ tripods, onSave, onReset }) {
 
 const mapStateToProps = state => ({
     tripods: state.selectedTripods,
+    equippedSkills: state.equippedSkills,
 })
 
 
 const mapDispatchToProps = dispatch => ({
-    onSave: (name, tripod) => dispatch(onSaveBuild(name, tripod)),
-    onReset: () => dispatch(onResetBuild())
+    onSaveTripods: (name, tripod) => dispatch(onSaveTripods(name, tripod)),
+    onResetTripods: () => dispatch(onResetTripods()),
+    onSaveSkills: (name, skills) => dispatch(onSaveSkills(name, skills)),
+    onResetSkills: () => dispatch(onResetSkills()),
 }) 
 
 export default connect(mapStateToProps, mapDispatchToProps)(SaveButton)

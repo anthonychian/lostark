@@ -1,5 +1,5 @@
 import { createStore, combineReducers } from 'redux'
-import { skills, tripods, skillSelected, tripodTooltip, selectedTripods, storedBuilds } from './reducers'
+import { skills, tripods, skillSelected, tripodTooltip, selectedTripods, storedTripods, equippedSkills, storedSkills } from './reducers'
 
 const reducers = {
     skills,
@@ -7,7 +7,9 @@ const reducers = {
     skillSelected,
     tripodTooltip,
     selectedTripods,
-    storedBuilds,
+    storedTripods,
+    equippedSkills,
+    storedSkills,
 }
 
 const rootReducer = combineReducers(reducers)
