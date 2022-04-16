@@ -1,6 +1,7 @@
-import Navbar from "./components/Navbar"
+import Navbar from './components/Navbar'
 import HomePage from './pages/HomePage'
-import MyBuilds from "./pages/MyBuilds"
+import MyBuilds from './pages/MyBuilds'
+import Auth from './pages/Auth'
 
 import {
   Routes,
@@ -17,6 +18,7 @@ export default function App() {
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/mybuilds" element={<MyBuilds />} />
+          <Route exact path="/auth" element={<Auth />} />
           {/* <Route path="/about" element={<AboutPage />} />
           <Route path="/articles-list" element={<ArticlesListPage />} />
           <Route path="/article/:name" element={<ArticlePage />} />

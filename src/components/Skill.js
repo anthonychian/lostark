@@ -22,7 +22,6 @@ const useStyles = makeStyles({
         position: 'relative',
     },
     container: {
-        // userSelect: 'none',
 
         height: '100%',
         width: '100%',
@@ -32,15 +31,17 @@ const useStyles = makeStyles({
         alignItems: 'center',
         '&:hover': {
             backgroundColor: 'rgba(255, 255, 255, 0.1)',
-        }
+        },
     },
     icon: {
-        // userSelect: 'none',
-        
+        cursor: 'grab',
         fontSize: '20px',
         marginLeft: '1em',
         overflow: 'hidden',
         position: 'relative',
+        '&:active': {
+            cursor: 'grabbing'
+        },
 
         '&:before': {
             content: '""',
@@ -80,6 +81,7 @@ const useStyles = makeStyles({
     },
     
     text: {
+        pointerEvents: 'none',
         fontSize: '20px',
         marginLeft: '0.5em',
     },
@@ -95,13 +97,21 @@ const useStyles = makeStyles({
 
 })
 
+function mouseEnter(event) {
+    event.preventDefault()
+}
+
 function dragStart(event) {
+    // event.preventDefault()
     event.dataTransfer.setData("Text", event.target.id);
+    // event.style.cursor = 'grabbing'
     // document.getElementById("demo").innerHTML = "Started to drag the p element";
 }
   
 function dragEnd(event) {
+    // event.preventDefault()
     // document.getElementById("demo").innerHTML = "Finished dragging the p element.";
+    // event.style.cursor = 'default'
 }
 
 function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected, tripods }) {
@@ -125,8 +135,9 @@ function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected, tri
                         <div className={classes.icon} >
                             {skill.url && <img src={skill.url} 
                                 width='60' height='60' 
-                                alt={skill.name} 
-                                onDragStart={(event) => dragStart(event)} 
+                                alt={skill.name}
+                                onMouseEnter={(event) => mouseEnter(event)}
+                                onDragStart={(event) => dragStart(event)}
                                 onDragEnd={(event) => dragEnd(event)} 
                                 draggable={true} 
                                 id={skill.name}
@@ -160,6 +171,7 @@ function Skill({ current, skill, onHover, onLeave, onClick, onClickSelected, tri
                             {skill.url && <img src={skill.url} 
                                 width='60' height='60' 
                                 alt={skill.name} 
+                                onMouseEnter={(event) => mouseEnter(event)}
                                 onDragStart={(event) => dragStart(event)} 
                                 onDragEnd={(event) => dragEnd(event)} 
                                 draggable={true} 

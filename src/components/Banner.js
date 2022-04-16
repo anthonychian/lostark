@@ -29,6 +29,8 @@ const useStyles = makeStyles({
         margin: 'auto',
         minWidth: '50%',
         minHeight: '50%',
+
+        pointerEvents: 'none'
     },
     header: {
         width: '100px',
@@ -62,12 +64,12 @@ export default function Banner() {
                 
                 <img className={classes.banner2} src={deathblade} alt='deathblade' />
             </section>
-            <section className={classes.header}>
+            {/* <section className={classes.header}>
                 <img className={classes.logo} src={deathbladelogo} alt='deathblade_logo' />
                 <span className={classes.title}>
                     Deathblade
                 </span>
-            </section>
+            </section> */}
         </>
     )
 }

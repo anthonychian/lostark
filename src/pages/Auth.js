@@ -1,12 +1,12 @@
 import React from 'react'
 import Banner from "../components/Banner"
-import BuildsList from '../components/BuildsList'
+import Signup from '../components/Signup'
 
-export default function MyBuilds() {
+export default function Auth() {
   return (
     <>
         <Banner />
-        <BuildsList />
+        <Signup />
     </>
   )
 }
