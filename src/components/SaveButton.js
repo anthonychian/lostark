@@ -7,7 +7,6 @@ import { makeStyles } from '@mui/styles'
 import { connect } from 'react-redux'
 import { onSaveTripods, onResetTripods, onSaveSkills, onResetSkills } from '../redux/actions'
 
-
 const useStyles = makeStyles({
     input: {
         color: "white",

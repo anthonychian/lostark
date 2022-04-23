@@ -1,6 +1,6 @@
 import React from 'react'
 import deathblade from '../assets/deathblade2.jpg'
-import deathbladelogo from '../assets/deathbladelogo.png'
+// import deathbladelogo from '../assets/deathbladelogo.png'
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({

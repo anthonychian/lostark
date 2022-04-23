@@ -1,12 +1,12 @@
 import React from 'react'
 import Banner from "../components/Banner"
-import Signup from '../components/Signup'
+import Login from '../components/Login'
 
-export default function Auth() {
+export default function LogInPage() {
   return (
     <>
         <Banner />
-        <Signup />
+        <Login />
     </>
   )
 }

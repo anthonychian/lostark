@@ -59,13 +59,12 @@ const useStyles = makeStyles({
 })
 
 
-export default function Signup() {
+export default function Login() {
 
-    const { signup } = useAuth()
+    const { login } = useAuth()
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [passwordConfirm, setPasswordConfirm] = useState("")
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
 
@@ -76,21 +75,21 @@ export default function Signup() {
         try {
             setError('')
             setLoading(true)
-            await signup(email, password)
+            await login(email, password)
             .then(() => {
                 console.log('success')
             })
         }
         catch(error) {
-            console.log(error)
-            setError('Failed to create an account')
+            setError('Failed to sign in')
+            console.log('error')
         }
         setLoading(false)
     }
 
     return (
         <>
-             <Box 
+            <Box 
                 className={classes.alertBox}
                 backgroundColor="grey"
             >
@@ -98,8 +97,8 @@ export default function Signup() {
                     {error}
                 </Alert>}
             </Box>
-
             <Box
+                
                 className={classes.boxContainer}
                 component="form"
                 noValidate
@@ -109,11 +108,12 @@ export default function Signup() {
             >
                 <section className={classes.form}>
                     <div className={classes.title}>
-                        Sign Up
+                        Log In
                     </div>
                     {/* <div style={{color: 'white'}}> 
                         {currentUser.email}
                     </div> */}
+                    
                     
                     <section className={classes.textContainer}>
                         <TextField
@@ -142,57 +142,27 @@ export default function Signup() {
                         />
                     </section>
                     
-                    {((password === passwordConfirm) || (password === '' || passwordConfirm === '')) ?
-                    <section className={classes.textContainer}>
-                        <TextField
-                            inputProps={{ className: classes.input }}
-                            label="Confirm password"
-                            variant="filled"
-                            color="primary"
-                            type="password"
-                            value={passwordConfirm}
-                            onChange={(e) => {
-                                setPasswordConfirm(e.target.value);
-                            }}
-                        />
-                    </section> :
-                    <section className={classes.textContainer}>
-                        <TextField
-                            inputProps={{ className: classes.input }}
-                            error
-                            helperText="Password does not match."
-                            label="Confirm password"
-                            variant="filled"
-                            color="primary"
-                            type="password"
-                            value={passwordConfirm}
-                            onChange={(e) => {
-                                setPasswordConfirm(e.target.value);
-                            }}
-                        />
-                    </section>}
-                    
                     <section className={classes.buttonContainer}>
-                    {((password === passwordConfirm) && (password !== '' && email !== '')) ?
+                    {(password !== '' && email !== '') ?
                             <LoadingButton
                                 loading={loading}
                                 type="submit"
                                 sx={{ color: 'white'}}
                                 size="large"
                                 variant="contained">
-                                    Sign Up
+                                    Log In
                             </LoadingButton> :
                             <Button
-                                disabled
+                                disabled={loading}
                                 type="submit"
                                 sx={{ color: 'white'}}
                                 size="large"
                                 variant="contained">
-                                    Sign Up
+                                    Log In
                             </Button>}
                     </section>
                     <div className={classes.login}>
-                        Already have an account? <Link to='/login'>Log In</Link>
+                        Don't have an account? <Link to='/signup'>Sign Up</Link>
                     </div>
                 </section>
                 

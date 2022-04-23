@@ -14,7 +14,7 @@ import Container from '@mui/material/Container'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
 
-const pages = ['Build', 'My Builds'];
+const pages = ['Classes', 'Build', 'My Builds'];
 
 let themeHeader = createTheme({
     palette: {
@@ -69,6 +69,8 @@ export default function Navbar() {
                             onClick={handleCloseNavMenu}
                             sx={{ my: 2, color: 'white', display: 'block' }}
                         >
+                            {page === 'Classes' &&
+                            <Link to={`/classes`} style={{ color: 'white', textDecoration: 'none'}}>{page}</Link>}
                             {page === 'Build' &&
                             <Link to={`/`} style={{ color: 'white', textDecoration: 'none'}}>{page}</Link>}
                             {page === 'My Builds' &&
@@ -109,6 +111,8 @@ export default function Navbar() {
                         {pages.map((page) => (
                             <MenuItem key={page} onClick={handleCloseNavMenu}>
                             <Typography textAlign="center">
+                                {page === 'Classes' &&
+                                <Link to={`/classes`} style={{ color: 'white', textDecoration: 'none'}}>{page}</Link>}
                                 {page === 'Build' &&
                                 <Link to={`/`} style={{ color: 'black', textDecoration: 'none'}}>{page}</Link>}
                                 {page === 'My Builds' &&
