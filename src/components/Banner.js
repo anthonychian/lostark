@@ -19,7 +19,7 @@ const useStyles = makeStyles({
         height: '200%',
         zIndex: '-1',
     },
-    banner2: {
+    bannerImage: {
         objectFit: 'cover',
         position: 'absolute',
         top: 0,
@@ -62,7 +62,7 @@ export default function Banner() {
         <>
             <section className={classes.bannerContainer}>
                 
-                <img className={classes.banner2} src={deathblade} alt='deathblade' />
+                <img className={classes.bannerImage} src={deathblade} alt='deathblade' />
             </section>
             {/* <section className={classes.header}>
                 <img className={classes.logo} src={deathbladelogo} alt='deathblade_logo' />

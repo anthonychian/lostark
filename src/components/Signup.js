@@ -3,7 +3,7 @@ import { Box, TextField, Button, Alert} from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { makeStyles } from '@mui/styles'
 import { useAuth } from '../contexts/AuthContext'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const useStyles = makeStyles({
     input: {
@@ -66,8 +66,9 @@ export default function Signup() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passwordConfirm, setPasswordConfirm] = useState("")
-    const [error, setError] = useState('')
+    const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
 
     const classes = useStyles()
 
@@ -77,13 +78,10 @@ export default function Signup() {
             setError('')
             setLoading(true)
             await signup(email, password)
-            .then(() => {
-                console.log('success')
-            })
+            navigate('/');
         }
         catch(error) {
-            console.log(error)
-            setError('Failed to create an account')
+            setError(error.toString().slice(25))
         }
         setLoading(false)
     }
