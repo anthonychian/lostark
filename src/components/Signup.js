@@ -8,7 +8,11 @@ import { Link, useNavigate } from 'react-router-dom'
 const useStyles = makeStyles({
     input: {
         color: 'black',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+    },
+    button: {
+        color: 'white',
+        width: '100%'
     },
     boxContainer: {
         padding: '2em',
@@ -40,13 +44,15 @@ const useStyles = makeStyles({
         textAlign: 'center',
         color: 'white',
         fontSize: '16px',
+        padding: '1em 0 1em 0'
     },
     textContainer: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#1c1c1c',
-        padding: '1.5em'
+        padding: '1.5em',
+        width: 'auto'
     },
     buttonContainer: {
         display: 'flex',
@@ -77,8 +83,9 @@ export default function Signup() {
         try {
             setError('')
             setLoading(true)
+
             await signup(email, password)
-            navigate('/');
+            navigate('/')
         }
         catch(error) {
             setError(error.toString().slice(25))
@@ -171,11 +178,11 @@ export default function Signup() {
                     </section>}
                     
                     <section className={classes.buttonContainer}>
-                    {((password === passwordConfirm) && (password !== '' && email !== '')) ?
+                    {password !== '' && email !== '' ?
                             <LoadingButton
                                 loading={loading}
                                 type="submit"
-                                sx={{ color: 'white'}}
+                                className={classes.button}
                                 size="large"
                                 variant="contained">
                                     Sign Up
@@ -183,7 +190,7 @@ export default function Signup() {
                             <Button
                                 disabled
                                 type="submit"
-                                sx={{ color: 'white'}}
+                                className={classes.button}
                                 size="large"
                                 variant="contained">
                                     Sign Up

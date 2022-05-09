@@ -4,8 +4,12 @@ import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import { makeStyles } from '@mui/styles'
 
+import { useAuth } from '../contexts/AuthContext'
+
 import { connect } from 'react-redux'
 import { onSaveTripods, onResetTripods, onSaveSkills, onResetSkills } from '../redux/actions'
+
+import { getDatabase, ref, push, set } from "firebase/database";
 
 const useStyles = makeStyles({
     input: {
@@ -44,16 +48,46 @@ function SaveButton({ tripods, equippedSkills, onSaveTripods, onResetTripods, on
 
     const classes = useStyles()
 
+    const { currentUser } = useAuth()
+
     const [value, setValue] = useState("")
 
     function handleSubmit(event) {
         event.preventDefault()
         //console.log(value, tripods)
-        onSaveTripods(value, tripods)
+        // onSaveTripods(value, tripods)
+        
+        // onSaveSkills(value, equippedSkills)
+        
+
+        console.log(currentUser.email)
+        console.log(value)
         console.log(tripods)
-        onSaveSkills(value, equippedSkills)
         console.log(equippedSkills)
+
+        const db = getDatabase();
+        const buildListRef = ref(db, 'builds');
+        const newBuildRef = push(buildListRef);
+        set(newBuildRef, {
+            author: currentUser.email,
+            name: value,
+            tripods: tripods,
+            skills: equippedSkills,
+        });
     }
+
+    // const createBuild = () => {
+    //     // Create a new post reference with an auto-generated id
+    //     const db = getDatabase();
+    //     const buildListRef = ref(db, 'builds');
+    //     const newBuildRef = push(buildListRef);
+    //     set(newBuildRef, {
+    //         author: currentUser,
+    //         name: value,
+    //         tripods: {},
+    //         skills: {},
+    //     });
+    // }
 
     return (
         <Box

@@ -12,6 +12,7 @@ import {
   Route,
   BrowserRouter as Router,
 } from 'react-router-dom'
+import ResetPasswordPage from './pages/ResetPasswordPage'
 
 
 
@@ -25,6 +26,7 @@ export default function App() {
           <Route exact path="/mybuilds" element={<MyBuilds />} />
           <Route exact path="/login" element={<LogInPage />} />
           <Route exact path="/signup" element={<SignUpPage />} />
+          <Route exact path="/forgotpassword" element={<ResetPasswordPage />} />
           <Route exact path="/classes" element={<ClassesPage />} />
           {/* <Route path="/about" element={<AboutPage />} />
           <Route path="/articles-list" element={<ArticlesListPage />} />

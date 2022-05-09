@@ -8,7 +8,11 @@ import { Link, useNavigate } from 'react-router-dom'
 const useStyles = makeStyles({
     input: {
         color: 'black',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
+    },
+    button: {
+        color: 'white',
+        width: '100%'
     },
     boxContainer: {
         padding: '2em',
@@ -40,13 +44,15 @@ const useStyles = makeStyles({
         textAlign: 'center',
         color: 'white',
         fontSize: '16px',
+        padding: '1em 0 1em 0'
     },
     textContainer: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#1c1c1c',
-        padding: '1.5em'
+        padding: '1.5em',
+        width: 'auto'
     },
     buttonContainer: {
         display: 'flex',
@@ -108,11 +114,7 @@ export default function Login() {
                     <div className={classes.title}>
                         Log In
                     </div>
-                    {/* <div style={{color: 'white'}}> 
-                        {currentUser.email}
-                    </div> */}
-                    
-                    
+                                   
                     <section className={classes.textContainer}>
                         <TextField
                             inputProps={{ className: classes.input }}
@@ -124,7 +126,6 @@ export default function Login() {
                                 setEmail(e.target.value);
                             }}
                         />
-                        
                     </section>
                     <section className={classes.textContainer}>
                         <TextField
@@ -145,20 +146,23 @@ export default function Login() {
                             <LoadingButton
                                 loading={loading}
                                 type="submit"
-                                sx={{ color: 'white'}}
+                                className={classes.button}
                                 size="large"
                                 variant="contained">
                                     Log In
                             </LoadingButton> :
                             <Button
-                                disabled={loading}
+                                disabled
                                 type="submit"
-                                sx={{ color: 'white'}}
+                                className={classes.button}
                                 size="large"
                                 variant="contained">
                                     Log In
                             </Button>}
                     </section>
+                    <div className={classes.login}>
+                        <Link to='/forgotpassword'className={classes.login}>Forgot Password?</Link>
+                    </div>
                     <div className={classes.login}>
                         Don't have an account? <Link to='/signup'>Sign Up</Link>
                     </div>
