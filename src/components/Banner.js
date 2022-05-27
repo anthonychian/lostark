@@ -1,5 +1,5 @@
 import React from 'react'
-import deathblade from '../assets/deathblade2.jpg'
+import wallpaper from '../assets/wallpaper3.jpg'
 // import deathbladelogo from '../assets/deathbladelogo.png'
 import { makeStyles } from '@mui/styles';
 
@@ -20,6 +20,7 @@ const useStyles = makeStyles({
         zIndex: '-1',
     },
     bannerImage: {
+        filter: 'blur(3px)',
         objectFit: 'cover',
         position: 'absolute',
         top: 0,
@@ -29,7 +30,6 @@ const useStyles = makeStyles({
         margin: 'auto',
         minWidth: '50%',
         minHeight: '50%',
-
         pointerEvents: 'none'
     },
     header: {
@@ -62,7 +62,7 @@ export default function Banner() {
         <>
             <section className={classes.bannerContainer}>
                 
-                <img className={classes.bannerImage} src={deathblade} alt='deathblade' />
+                <img className={classes.bannerImage} src={wallpaper} alt='wallpaper' />
             </section>
             {/* <section className={classes.header}>
                 <img className={classes.logo} src={deathbladelogo} alt='deathblade_logo' />

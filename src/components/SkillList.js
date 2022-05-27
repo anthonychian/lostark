@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Skill from './Skill'
 import Tripod from './Tripod'
 import deathbladeSkills from '../data/deathblade'
+import sorceressSkills from '../data/sorceress'
 import List from '@mui/material/List'
 import Box from '@mui/material/Box';
 import { makeStyles } from '@mui/styles';
+import { useParams } from "react-router-dom";
 
 
 const useStyles = makeStyles({
   box: {
+    objectFit: 'cover',
     height: '700px',
     width: '550px',
     display: 'flex',
@@ -30,6 +33,24 @@ export default function SkillList() {
 
   const classes = useStyles()
 
+  const [skills, setSkills] = useState([])
+
+  const { classSkill } = useParams()
+
+  
+  useEffect(() => {
+    switch(classSkill) {
+      case 'deathblade': 
+        setSkills(deathbladeSkills)
+        break;
+      case 'sorceress':
+        setSkills(sorceressSkills)
+        break;
+      default:
+        return
+    }
+  }, [classSkill])
+
   return (
     
     <section className={classes.boxContainer} >
@@ -46,7 +67,7 @@ export default function SkillList() {
 
           
 
-          {deathbladeSkills.map(skill =>
+          {skills.map(skill =>
             <div className={classes.skill} key={skill.name} >
               <Skill skill={skill} />
             </div>

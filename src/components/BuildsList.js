@@ -4,17 +4,14 @@ import { makeStyles } from '@mui/styles'
 import Box from '@mui/material/Box'
 
 import { styled } from '@mui/material/styles';
-import List from '@mui/material/List';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemText from '@mui/material/ListItemText';
-import Avatar from '@mui/material/Avatar';
 
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import FolderIcon from '@mui/icons-material/Folder';
-// import DeleteIcon from '@mui/icons-material/Delete';
-// import IconButton from '@mui/material/IconButton';
+import deathblade from '../assets/blade.jpg'
+import sorceress from '../assets/sorc.jpg'
+
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import ListSubheader from '@mui/material/ListSubheader';
 
 import { connect } from 'react-redux'
 import { onLoadSkills, onLoadTripods } from '../redux/actions'
@@ -25,7 +22,7 @@ import { useAuth } from '../contexts/AuthContext'
 
 const useStyles = makeStyles({
     boxContainer: {
-        marginTop: '20vh',
+        marginTop: '30vh',
         width: '100vw',
         height: '10vh',
         display: 'flex',
@@ -62,6 +59,10 @@ function BuildsList({ onLoadTripods, onLoadSkills}) {
         });
     }, [currentUser])
 
+    useEffect(()=> {
+
+    })
+
     
 
     return (
@@ -71,67 +72,46 @@ function BuildsList({ onLoadTripods, onLoadSkills}) {
             autoComplete="off"
             backgroundColor="grey"
         >
-            <Grid item xs={12} md={6}>
-                <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-                    Avatar with text and icon
-                </Typography>
-                <Demo>
-                    <List className={classes.list}>
-                        {Object.entries(buildData).map(([ key, value ], i) =>
-                            <Link to={`/`} 
-                                key={value.name}
-                                style={{ color: 'black', textDecoration: 'none'}}
-                            >
-                                <ListItemButton
-                                    
-                                    onClick={()=> {
-                                        onLoadTripods(value.tripods)
-                                        onLoadSkills(value.skills)
-                                    }}
-                                >
-                                    <ListItemAvatar>
-                                        <Avatar>
-                                        <FolderIcon />
-                                        </Avatar>
-                                    </ListItemAvatar>
-                                    <ListItemText
-                                        classes={{ primary: classes.text }}
-                                        primary={value.name}
-                                        secondary={'created by:' + value.author}
-                                    />
-                                </ListItemButton>
-                            </Link>
-                        )}
-                    </List>
-                </Demo>
-            </Grid>
+
+            <ImageList sx={{ width: '50vw', height: 'auto' }}>
+                <ImageListItem key="Subheader" cols={2}>
+                    <ListSubheader component="div">My Builds</ListSubheader>
+                </ImageListItem>
+                {Object.entries(buildData).map(([ key, value ], i) => (
+                    <Link to={`/build/${value.class}`} 
+                        key={value.name}
+                        style={{ color: 'black', textDecoration: 'none'}}
+                    >
+                        <ImageListItem
+                            onClick={()=> {
+                                onLoadTripods(value.tripods)
+                                onLoadSkills(value.skills)
+                            }}
+                            key={value.name}>
+                            {value.class === 'deathblade' && <img
+                                src={`${deathblade}?w=248&fit=crop&auto=format`}
+                                srcSet={`${deathblade}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                alt={value.name}
+                                loading="lazy"
+                            />}
+                            {value.class === 'sorceress' && <img
+                                src={`${sorceress}?w=248&fit=crop&auto=format`}
+                                srcSet={`${sorceress}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                alt={value.name}
+                                loading="lazy"
+                            />}
+                            <ImageListItemBar
+                                title={value.name}
+                                subtitle={'created by:' + value.author}
+                            />
+                        </ImageListItem>
+                    </Link>
+                ))}
+            </ImageList>
+            
         </Box>
     )
 }
-
-
-// <ul>
-//                 {listOfTripods.map(build =>
-//                     <li className={classes.buildText} 
-//                         key={build.name} 
-//                         onClick={()=> {
-//                             onLoadTripods(build.tripods)
-//                             onLoadSkills(build.skills)
-//                             // onLoadTripods(build.tripod)
-//                             // onLoadSkills(listOfSkills.filter((skill) => skill.name === build.name)[0].skills)
-//                         }} 
-//                     >
-//                         <Link to={`/`} style={{ color: 'white', textDecoration: 'none'}}>
-//                             {build.name}
-//                         </Link>
-//                     </li>
-//                 )}
-//             </ul>
-
-// const mapStateToProps = state => ({
-//     listOfTripods: state.storedTripods,
-//     listOfSkills: state.storedSkills,
-// })
 
 
 const mapDispatchToProps = dispatch => ({

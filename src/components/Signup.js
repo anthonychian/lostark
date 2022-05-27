@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, TextField, Button, Alert} from '@mui/material';
+import { Box, TextField, Alert} from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { makeStyles } from '@mui/styles'
 import { useAuth } from '../contexts/AuthContext'
@@ -178,7 +178,7 @@ export default function Signup() {
                     </section>}
                     
                     <section className={classes.buttonContainer}>
-                    {password !== '' && email !== '' ?
+                    {/* {password !== '' && email !== '' ? */}
                             <LoadingButton
                                 loading={loading}
                                 type="submit"
@@ -186,15 +186,15 @@ export default function Signup() {
                                 size="large"
                                 variant="contained">
                                     Sign Up
-                            </LoadingButton> :
-                            <Button
+                            </LoadingButton> 
+                            {/* : <Button
                                 disabled
                                 type="submit"
                                 className={classes.button}
                                 size="large"
                                 variant="contained">
                                     Sign Up
-                            </Button>}
+                            </Button>} */}
                     </section>
                     <div className={classes.login}>
                         Already have an account? <Link to='/login'>Log In</Link>

@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
-import { makeStyles } from '@mui/styles';
+import React, { useEffect, useState } from 'react'
 import deathbladeSkills from '../data/deathblade'
-
+import sorceressSkills from '../data/sorceress'
 import { connect } from 'react-redux'
 import { onHoverSkill, onLeaveSkill, onAddSkill } from '../redux/actions'
+import { useParams } from "react-router-dom";
+import { makeStyles } from '@mui/styles';
+
 
 const useStyles = makeStyles({
     gridContainer: {
@@ -50,8 +52,26 @@ function dragEnd(event) {
 function SkillBar({ equippedSkills, onHover, onLeave, addSkill }) {
 
     const classes = useStyles()
+
+    const [skills, setSkills] = useState([])
+
+    const { classSkill } = useParams()
     
     const [showSkill1, setShowSkill1] = useState(false)
+
+    
+    useEffect(() => {
+        switch(classSkill) {
+        case 'deathblade': 
+            setSkills(deathbladeSkills)
+            break;
+        case 'sorceress':
+            setSkills(sorceressSkills)
+            break;
+        default:
+            return
+        }
+    }, [classSkill])
 
     function allowDrop(event) {
         event.preventDefault();
@@ -63,7 +83,7 @@ function SkillBar({ equippedSkills, onHover, onLeave, addSkill }) {
         const newNode = document.getElementById(data)
         const position = event.target.innerHTML - 1
 
-        const skill = deathbladeSkills.filter(skill => skill.name === data)
+        const skill = skills.filter(skill => skill.name === data)
         if (newNode) {
             if ((skill[0].skill_type === 'Awakening Skill' && position === 8) ||
                 (skill[0].skill_type !== 'Awakening Skill' && position !== 8)) {
@@ -96,7 +116,31 @@ function SkillBar({ equippedSkills, onHover, onLeave, addSkill }) {
                 </div>
             </div>
             <div className={classes.grid}>
-                <div 
+                {[...Array(8)].map((x, i) =>
+   
+  
+                    <div
+                        key={i}
+                        onMouseEnter={() => onHover(equippedSkills[i])}
+                        onMouseLeave={()=> onLeave()}   
+                        className={classes.gridItem} 
+                        onDrop={(event) => drop(event)} 
+                        onDragOver={(event) => allowDrop(event)}
+                    >{i+1}
+                        {equippedSkills[i] && <img 
+                            src={equippedSkills[i].url} 
+                            width='60' height='60' 
+                            alt={equippedSkills[i].name} 
+                            onDragStart={(event) => dragStart(event)} 
+                            onDragEnd={(event) => dragEnd(event)} 
+                            draggable={true} 
+                            id={equippedSkills[i].name}
+                        />}
+
+                    </div>
+                )}
+
+                {/* <div 
                     onMouseEnter={() => onHover(equippedSkills[0])}
                     onMouseLeave={()=> onLeave()}   
                     className={classes.gridItem} 
@@ -232,7 +276,7 @@ function SkillBar({ equippedSkills, onHover, onLeave, addSkill }) {
                         draggable={true} 
                         id={equippedSkills[7].name}
                     />}
-                </div>
+                </div> */}
                 
             </div>
         </section>

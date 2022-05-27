@@ -22,7 +22,8 @@ export default function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/" element={<ClassesPage />} />
+          <Route exact path="/build/:classSkill" element={<HomePage />} />
           <Route exact path="/mybuilds" element={<MyBuilds />} />
           <Route exact path="/login" element={<LogInPage />} />
           <Route exact path="/signup" element={<SignUpPage />} />

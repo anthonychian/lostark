@@ -17,7 +17,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import Tooltip from '@mui/material/Tooltip';
 import { useAuth } from '../contexts/AuthContext'
 
-const pages = ['Classes', 'Build', 'My Builds'];
+const pages = ['Classes', 'My Builds'];
 // const pagesLoggedOut = ['Classes', 'Build'];
 
 let settings = ['Profile', 'Logout'];
@@ -110,8 +110,6 @@ export default function Navbar() {
                             >
                                 {page === 'Classes' &&
                                 <Link to={`/classes`} style={{ color: 'white', textDecoration: 'none'}}>{page}</Link>}
-                                {page === 'Build' &&
-                                <Link to={`/`} style={{ color: 'white', textDecoration: 'none'}}>{page}</Link>}
                                 {page === 'My Builds' && currentUser &&
                                 <Link to={`/mybuilds`} style={{ color: 'white', textDecoration: 'none'}}>{page}</Link>}
                             </Button>

@@ -3,6 +3,7 @@ import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import TextField from '@mui/material/TextField'
 import { makeStyles } from '@mui/styles'
+import { useParams } from "react-router-dom";
 
 import { useAuth } from '../contexts/AuthContext'
 
@@ -48,6 +49,8 @@ function SaveButton({ tripods, equippedSkills, onSaveTripods, onResetTripods, on
 
     const classes = useStyles()
 
+    const { classSkill } = useParams()
+
     const { currentUser } = useAuth()
 
     const [value, setValue] = useState("")
@@ -60,10 +63,10 @@ function SaveButton({ tripods, equippedSkills, onSaveTripods, onResetTripods, on
         // onSaveSkills(value, equippedSkills)
         
 
-        console.log(currentUser.email)
-        console.log(value)
-        console.log(tripods)
-        console.log(equippedSkills)
+        // console.log(currentUser.email)
+        // console.log(value)
+        // console.log(tripods)
+        // console.log(equippedSkills)
 
         const db = getDatabase();
         const buildListRef = ref(db, 'builds');
@@ -73,6 +76,7 @@ function SaveButton({ tripods, equippedSkills, onSaveTripods, onResetTripods, on
             name: value,
             tripods: tripods,
             skills: equippedSkills,
+            class: classSkill,
         });
     }
 

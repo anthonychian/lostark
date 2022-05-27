@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, TextField, Button, Alert} from '@mui/material';
+import { Box, TextField, Alert} from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import { makeStyles } from '@mui/styles'
 import { useAuth } from '../contexts/AuthContext'
@@ -83,7 +83,7 @@ export default function Login() {
             setError('')
             setLoading(true)
             await login(email, password)
-            navigate('/');
+            navigate('/classes');
         }
         catch(error) {
             setError(error.toString().slice(25))
@@ -142,7 +142,7 @@ export default function Login() {
                     </section>
                     
                     <section className={classes.buttonContainer}>
-                    {(password !== '' && email !== '') ?
+                    {/* {(password !== '' && email !== '') ? */}
                             <LoadingButton
                                 loading={loading}
                                 type="submit"
@@ -150,15 +150,15 @@ export default function Login() {
                                 size="large"
                                 variant="contained">
                                     Log In
-                            </LoadingButton> :
-                            <Button
+                            </LoadingButton> 
+                            {/* : <Button
                                 disabled
                                 type="submit"
                                 className={classes.button}
                                 size="large"
                                 variant="contained">
                                     Log In
-                            </Button>}
+                            </Button>} */}
                     </section>
                     <div className={classes.login}>
                         <Link to='/forgotpassword'className={classes.login}>Forgot Password?</Link>
