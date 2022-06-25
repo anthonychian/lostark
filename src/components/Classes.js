@@ -4,10 +4,12 @@ import Box from '@mui/material/Box'
 
 import Grid from '@mui/material/Grid';
 import ImageListItem from '@mui/material/ImageListItem';
-import ImageListItemBar from '@mui/material/ImageListItemBar';
+//import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 import Pulse from 'react-reveal/Pulse';
 import Fade from 'react-reveal/Fade';
+
+import Modal from '@mui/material/Modal';
 
 // import { Item } from '@mui/material';
 
@@ -20,6 +22,10 @@ import warrior from '../assets/warriorp.jpg'
 import martialartist from '../assets/martialartistp.jpg'
 import mage from '../assets/magep.jpg'
 import gunner from '../assets/gunnerp.jpg'
+import deathblade from '../assets/deathblade2.jpg'
+import shadowhunter from '../assets/sh.jpg'
+import sorceress from '../assets/sorceress.jpg'
+import bard from '../assets/bard.jpg'
 
 import { makeStyles } from '@mui/styles';
 
@@ -52,6 +58,32 @@ const useStyles = makeStyles({
         right: 0,
         textAlign: 'center'
     },
+    subclass: {
+        color: 'white',
+        fontSize: '2rem',
+        // display: 'flex',
+        // left: '50%',
+        marginTop: '-2em',
+        textAlign: 'center'
+    },
+    modal: {
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '50%',
+        height: 'auto',
+        bgcolor: 'background.paper',
+        backgroundColor: 'black',
+        border: '2px solid #000',
+        boxShadow: 24,
+        p: 4,
+    },
+    modalContent: {
+        display: 'flex',
+        justifyContent: 'space-evenly',
+        alignItems: 'center',
+    }
 })
 
 
@@ -66,6 +98,13 @@ export default function Classes() {
     const [mageHover, setMageHover] = useState(false)
     const [martialArtistHover, setMartialArtistHover] = useState(false)
     const [gunnerHover, setGunnerHover] = useState(false)
+
+    const [assassinOpen, setAssassinOpen] = useState(false);
+    const handleAssassinOpen = () => setAssassinOpen(true);
+    const handleAssassinClose = () => setAssassinOpen(false);
+    const [mageOpen, setMageOpen] = useState(false);
+    const handleMageOpen = () => setMageOpen(true);
+    const handleMageClosed = () => setMageOpen(false);
 
     function handleAssassinHover() {
         if (assassinHover) {
@@ -121,92 +160,180 @@ export default function Classes() {
             item xs={2.4}
             onMouseEnter={()=> handleAssassinHover()}
             onMouseLeave={()=> handleAssassinHover()}
+            onClick={handleAssassinOpen}
         >
-            <Link 
-                to={`/build/assassin`}
-                style={{ color: 'black', textDecoration: 'none'}}
+            
+            <Pulse spy={assassinHover} duration={pulseDuration}>
+                <ImageListItem rows={1} cols={1}>
+                    <img
+                        src={`${assassin}?w=248&fit=crop&auto=format`}
+                        // srcSet={`${assassin}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                        alt={'assassin'}
+                        loading="lazy"
+                    />
+                    {/* <ImageListItemBar title={'assassin'} /> */}
+                    {assassinHover === true && <Fade spy={assassinHover}>
+                        <h1 className={classes.classText}>Asssassin</h1>
+                    </Fade>}
+                </ImageListItem>
+            </Pulse>
+            <Modal
+                open={assassinOpen}
+                onClose={handleAssassinClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
             >
-                <Pulse spy={assassinHover} duration={pulseDuration}>
-                    <ImageListItem rows={1} cols={1}>
-                        <img
-                            src={`${assassin}?w=248&fit=crop&auto=format`}
-                            srcSet={`${assassin}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                            alt={'assassin'}
-                            loading="lazy"
-                        />
-                        {/* <ImageListItemBar title={'assassin'} /> */}
-                        {assassinHover === true && <Fade spy={assassinHover}>
-                            <h1 className={classes.classText}>Asssassin</h1>
-                        </Fade>}
-                        
-                    </ImageListItem>
-                </Pulse>
-            </Link>
+                <Box className={classes.modal}>
+                    <div className={classes.modalContent}>
+                        <Link 
+                            to={`/build/deathblade`}
+                            style={{ color: 'black', textDecoration: 'none'}}
+                        >
+                            <div>
+                                <img
+                                    height={384}
+                                    width={880}
+                                    src={`${deathblade}?w=248&fit=crop&auto=format`}
+                                    // srcSet={`${deathblade}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                    alt={'assassin'}
+                                    loading="lazy"
+                                />
+                                <h1 className={classes.subclass}>deathblade</h1>
+                            </div>
+                        </Link>
+                        <Link 
+                            to={`/build/deathblade`}
+                            style={{ color: 'black', textDecoration: 'none'}}
+                        >
+                            <div>
+                                <img
+                                    height={384}
+                                    width={880}
+                                    src={`${shadowhunter}?w=248&fit=crop&auto=format`}
+                                    // srcSet={`${shadowhunter}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                    alt={'assassin'}
+                                    loading="lazy"
+                                />
+                                <h1 className={classes.subclass}>shadowhunter</h1>
+                            </div>
+                        </Link>
+                    </div>
+                </Box>
+            </Modal>
+            
         </Grid>
+
+
+
         <Grid 
             item xs={2.4}
             onMouseEnter={()=> handleWarriorHover()}
             onMouseLeave={()=> handleWarriorHover()}
         >
-        <Link 
-            to={`/build/warrior`}
-            style={{ color: 'black', textDecoration: 'none'}}
-        >
-            <Pulse spy={warriorHover} duration={pulseDuration}>
-                <ImageListItem rows={1} cols={1}>
-                    <img
-                        src={`${warrior}?w=248&fit=crop&auto=format`}
-                        srcSet={`${warrior}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                        alt={'warrior'}
-                        loading="lazy"
-                    />
-                    {/* <ImageListItemBar title={'warrior'} /> */}
-                    {warriorHover === true && <Fade spy={warriorHover}>
-                        <h1 className={classes.classText}>Warrior</h1>
-                    </Fade>}
-                </ImageListItem>
-            </Pulse>
-        </Link>
-        </Grid>
-        <Grid 
-            item xs={2.4}
-            onMouseEnter={()=> handleMageHover()}
-            onMouseLeave={()=> handleMageHover()}
-        >
             <Link 
-                to={`/build/mage`}
+                to={`/classes/warrior`}
                 style={{ color: 'black', textDecoration: 'none'}}
             >
-                <Pulse spy={mageHover} duration={pulseDuration}>
+                <Pulse spy={warriorHover} duration={pulseDuration}>
                     <ImageListItem rows={1} cols={1}>
                         <img
-                            src={`${mage}?w=248&fit=crop&auto=format`}
-                            srcSet={`${mage}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                            alt={'mage'}
+                            src={`${warrior}?w=248&fit=crop&auto=format`}
+                            // srcSet={`${warrior}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                            alt={'warrior'}
                             loading="lazy"
                         />
-                        {/* <ImageListItemBar title={'mage'} /> */}
-                        {mageHover === true && <Fade spy={mageHover}>
-                            <h1 className={classes.classText}>Mage</h1>
+                        {/* <ImageListItemBar title={'warrior'} /> */}
+                        {warriorHover === true && <Fade spy={warriorHover}>
+                            <h1 className={classes.classText}>Warrior</h1>
                         </Fade>}
                     </ImageListItem>
                 </Pulse>
             </Link>
         </Grid>
+
+        
+        <Grid 
+            item xs={2.4}
+            onMouseEnter={()=> handleMageHover()}
+            onMouseLeave={()=> handleMageHover()}
+            onClick={()=>handleMageOpen()}
+        >
+            <Pulse spy={mageHover} duration={pulseDuration}>
+                <ImageListItem rows={1} cols={1}>
+                    <img
+                        src={`${mage}?w=248&fit=crop&auto=format`}
+                        // srcSet={`${mage}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                        alt={'mage'}
+                        loading="lazy"
+                    />
+                    {/* <ImageListItemBar title={'mage'} /> */}
+                    {mageHover === true && <Fade spy={mageHover}>
+                        <h1 className={classes.classText}>Mage</h1>
+                    </Fade>}
+                </ImageListItem>
+            </Pulse>
+
+            <Modal
+                open={mageOpen}
+                onClose={handleMageClosed}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box className={classes.modal}>
+                    <div className={classes.modalContent}>
+                        <Link 
+                            to={`/build/sorceress`}
+                            style={{ color: 'black', textDecoration: 'none'}}
+                        >
+                            <div>
+                                <img
+                                    height={384}
+                                    width={880}
+                                    src={`${sorceress}?w=248&fit=crop&auto=format`}
+                                    // srcSet={`${sorceress}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                    alt={'sorceress'}
+                                    loading="lazy"
+                                />
+                                <h1 className={classes.subclass}>sorceress</h1>
+                            </div>
+                        </Link>
+                        <Link 
+                            to={`/build/bard`}
+                            style={{ color: 'black', textDecoration: 'none'}}
+                        >
+                            <div>
+                                <img
+                                    height={384}
+                                    width={880}
+                                    src={`${bard}?w=248&fit=crop&auto=format`}
+                                    // srcSet={`${bard}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                                    alt={'bard'}
+                                    loading="lazy"
+                                />
+                                <h1 className={classes.subclass}>bard</h1>
+                            </div>
+                        </Link>
+                    </div>
+                </Box>
+            </Modal>
+        </Grid>
+
+
+
         <Grid 
             item xs={2.4}
             onMouseEnter={()=> handleMartialArtistHover()}
             onMouseLeave={()=> handleMartialArtistHover()}
         >
             <Link 
-                to={`/build/martialartist`}
+                to={`/classes/martialartist`}
                 style={{ color: 'black', textDecoration: 'none'}}
             >
                 <Pulse spy={martialArtistHover} duration={pulseDuration}>
                     <ImageListItem rows={1} cols={1}>
                         <img
                             src={`${martialartist}?w=248&fit=crop&auto=format`}
-                            srcSet={`${martialartist}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                            // srcSet={`${martialartist}?w=248&fit=crop&auto=format&dpr=2 2x`}
                             alt={'martialartist'}
                             loading="lazy"
                         />
@@ -224,14 +351,14 @@ export default function Classes() {
             onMouseLeave={()=> handleGunnerHover()}
         >
             <Link 
-                to={`/build/gunner`}
+                to={`/classes/gunner`}
                 style={{ color: 'black', textDecoration: 'none'}}
             >
                 <Pulse spy={gunnerHover}>
                     <ImageListItem rows={1} cols={1}>
                         <img
                             src={`${gunner}?w=248&fit=crop&auto=format`}
-                            srcSet={`${gunner}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                            // srcSet={`${gunner}?w=248&fit=crop&auto=format&dpr=2 2x`}
                             alt={'gunner'}
                             loading="lazy"
                         />
@@ -244,131 +371,6 @@ export default function Classes() {
             </Link>
         </Grid>
     </Grid>
-
-
-    
-      {/* <ImageList sx={{ width: '50vw', height: '50vh' }}>
-        <ImageListItem key="Subheader" >
-            <ListSubheader component="div">Classes</ListSubheader>
-        </ImageListItem>
-
-        <Link 
-            to={`/build/assassin`}
-            style={{ color: 'black', textDecoration: 'none'}}
-        >
-            <ImageListItem rows={1} cols={1}>
-                <img
-                    src={`${assassin}?w=248&fit=crop&auto=format`}
-                    srcSet={`${assassin}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                    alt={'assassin'}
-                    loading="lazy"
-                />
-                <ImageListItemBar
-                    title={'assassin'}
-                />
-            </ImageListItem>
-        </Link>
-        <Link 
-            to={`/build/warrior`}
-            style={{ color: 'black', textDecoration: 'none'}}
-        >
-            <ImageListItem rows={1} cols={1}>
-                <img
-                    src={`${warrior}?w=248&fit=crop&auto=format`}
-                    srcSet={`${warrior}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                    alt={'warrior'}
-                    loading="lazy"
-                />
-                <ImageListItemBar
-                    title={'warrior'}
-                />
-            </ImageListItem>
-        </Link>
-        <Link 
-            to={`/build/mage`}
-            style={{ color: 'black', textDecoration: 'none'}}
-        >
-            <ImageListItem rows={1} cols={1}>
-                <img
-                    src={`${mage}?w=248&fit=crop&auto=format`}
-                    srcSet={`${mage}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                    alt={'mage'}
-                    loading="lazy"
-                />
-                <ImageListItemBar
-                    title={'mage'}
-                />
-            </ImageListItem>
-        </Link>
-        <Link 
-            to={`/build/martialartist`}
-            style={{ color: 'black', textDecoration: 'none'}}
-        >
-            <ImageListItem rows={1} cols={1}>
-                <img
-                    src={`${martialartist}?w=248&fit=crop&auto=format`}
-                    srcSet={`${martialartist}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                    alt={'martialartist'}
-                    loading="lazy"
-                />
-                <ImageListItemBar
-                    title={'martialartist'}
-                />
-            </ImageListItem>
-        </Link>
-        <Link 
-            to={`/build/gunner`}
-            style={{ color: 'black', textDecoration: 'none'}}
-        >
-            <ImageListItem rows={1} cols={1}>
-                <img
-                    src={`${gunner}?w=248&fit=crop&auto=format`}
-                    srcSet={`${gunner}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                    alt={'gunner'}
-                    loading="lazy"
-                />
-                <ImageListItemBar
-                    title={'gunner'}
-                />
-            </ImageListItem>
-        </Link> */}
-
-
-        
-        {/* <Link 
-            to={`/build/deathblade`}
-            style={{ color: 'black', textDecoration: 'none'}}
-        >
-            <ImageListItem rows={1} cols={1}>
-                <img
-                    src={`${deathblade}?w=248&fit=crop&auto=format`}
-                    srcSet={`${deathblade}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                    alt={'deathblade'}
-                    loading="lazy"
-                />
-                <ImageListItemBar
-                    title={'deathblade'}
-                />
-            </ImageListItem>
-        </Link>
-        <Link 
-            to={`/build/sorceress`}
-            style={{ color: 'black', textDecoration: 'none'}}
-        >
-            <ImageListItem rows={2} cols={1}>
-                <img
-                    src={`${sorceress}?w=248&fit=crop&auto=format`}
-                    srcSet={`${sorceress}?w=248&fit=crop&auto=format&dpr=2 2x`}
-                    alt={'sorceress'}
-                    loading="lazy"
-                />
-                <ImageListItemBar
-                    title={'sorceress'}
-                />
-            </ImageListItem>
-        </Link> 
-    </ImageList>*/}
-
    </Box>
   )
 }

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { makeStyles } from '@mui/styles'
 import Box from '@mui/material/Box'
 
-import { styled } from '@mui/material/styles';
+//import { styled } from '@mui/material/styles';
 
 import deathblade from '../assets/blade.jpg'
 import sorceress from '../assets/sorc.jpg'
@@ -35,9 +35,9 @@ const useStyles = makeStyles({
     },
 })
 
-const Demo = styled('div')(({ theme }) => ({
-    backgroundColor: theme.palette.background.paper,
-}))
+// const Demo = styled('div')(({ theme }) => ({
+//     backgroundColor: theme.palette.background.paper,
+// }))
   
 
 function BuildsList({ onLoadTripods, onLoadSkills}) {
@@ -58,10 +58,6 @@ function BuildsList({ onLoadTripods, onLoadSkills}) {
             setBuildData(data)
         });
     }, [currentUser])
-
-    useEffect(()=> {
-
-    })
 
     
 
